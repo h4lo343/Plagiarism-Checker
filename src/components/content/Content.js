@@ -4,7 +4,6 @@ import antdStyle from "../../App.css";
 import styles from "./Content.module.css"
 import {Breadcrumb} from "../breadcrumb";
 
-
 const {Content: PageContent} = Layout;
 
 export const Content = () => {
@@ -21,5 +20,5 @@ export const Content = () => {
                 Bill is a cat.
             </div>
         </PageContent>
-    )
-}
+    );
+};

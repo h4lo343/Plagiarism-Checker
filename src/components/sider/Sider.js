@@ -33,5 +33,5 @@ export const Sider = () => {
             <div className={antdStyle["logo"]} />
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
         </PageSider>
-    )
+    );
 };

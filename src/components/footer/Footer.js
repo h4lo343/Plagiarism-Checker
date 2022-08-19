@@ -9,5 +9,5 @@ export const Footer = () => {
         <PageFooter className={styles.footer}>
             Ant Design ©2018 Created by Ant UED
         </PageFooter>
-    )
+    );
 };

@@ -12,5 +12,5 @@ export const Header = () => {
                 padding: 0,
             }}
         />
-    )
-}
+    );
+};
