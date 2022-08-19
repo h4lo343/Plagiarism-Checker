@@ -7,7 +7,7 @@ const {Footer: PageFooter} = Layout;
 export const Footer = () => {
     return (
         <PageFooter className={styles.footer}>
-            Ant Design ©2018 Created by Ant UED
+            Plagiarism Checker ©2022 Created by Team SC-Quokka
         </PageFooter>
     );
 };
