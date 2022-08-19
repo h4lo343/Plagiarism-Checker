@@ -1,0 +1,15 @@
+Index: src/pages/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>4:38pm zhuocun
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/index.js b/src/pages/index.js
+--- a/src/pages/index.js	(revision 743a4defe1808cc9014504ab58f092494340b3fa)
++++ b/src/pages/index.js	(date 1660891324541)
+@@ -1,1 +1,1 @@
+-4:38pm zhuocun
+\ No newline at end of file
++4:41pm zhuocun
+\ No newline at end of file
