@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./Footer.module.css"
 import {Layout} from "antd";
 
-const { Footer: PageFooter } = Layout;
+const {Footer: PageFooter} = Layout;
 
 export const Footer = () => {
     return (
