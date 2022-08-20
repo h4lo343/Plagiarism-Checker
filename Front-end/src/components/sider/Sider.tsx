@@ -5,12 +5,12 @@ import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutli
 
 const {Sider: PageSider} = Layout;
 
-function getItem(label, key, icon, children) {
+const getItem = (label: string, key: string, icon?: JSX.Element, children?: any) => {
     return {
+        label,
         key,
         icon,
-        children,
-        label,
+        children
     };
 }
 
@@ -22,7 +22,9 @@ const items = [
         getItem('Bill', '4'),
         getItem('Alex', '5'),
     ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
+    getItem('Team', 'sub2', <TeamOutlined />,
+        [getItem('Team 1', '6'),
+            getItem('Team 2', '8')]),
     getItem('Files', '9', <FileOutlined />)
 ];
 
