@@ -6,6 +6,10 @@ Front-end/node_modules
 /.pnp
 .pnp.js
 
+# temporary files
+Back-end/raw
+Back-end/result
+
 # testing
 /coverage
 
