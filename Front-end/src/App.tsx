@@ -1,4 +1,4 @@
-import {HomePage, Login, Signup} from "./pages";
+import {HomePage, Login, Signup, Register} from "./pages";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 const App = () => {
@@ -6,9 +6,10 @@ const App = () => {
       <div>
           <BrowserRouter>
               <Routes>
-                  {/* <Route path="/" element={<HomePage />} /> */}
+                  <Route path="/homepage" element={<HomePage />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/" element={<Signup />} />
+                  <Route path="/register" element={<Register/>} />
                   <Route path="*" element={<h1>404 not found</h1>} />
               </Routes>
         </BrowserRouter>
