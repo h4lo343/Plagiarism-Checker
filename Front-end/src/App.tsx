@@ -11,7 +11,7 @@ const App = () => {
                   <Route path="/signup" element={<Signup />} />
                   <Route path="*" element={<h1>404 not found</h1>} />
               </Routes>
-          </BrowserRouter>
+        </BrowserRouter>
       </div>
   );
 };

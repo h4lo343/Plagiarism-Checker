@@ -1,9 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+Back-end/node_modules
 Front-end/node_modules
 /.pnp
 .pnp.js
+
+# temporary files
+# Back-end/raw
+# Back-end/result
 
 # testing
 /coverage
@@ -29,5 +34,4 @@ out
 gen
 
 # Others
-.gitignore
 
