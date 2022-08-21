@@ -10,10 +10,10 @@ export const HomePage = () => {
         <Layout className={styles.layout}>
             <Sider/>
             <Layout className={antdStyle["site-layout"]}>
-                <Header />
-                    <Content />
-                    <Watermark></Watermark>
-                <Footer />
+                <Header/>
+                    <Content/>
+                    <Watermark left="48%" top='33%'/>
+                <Footer/>
             </Layout>
         </Layout>
     );

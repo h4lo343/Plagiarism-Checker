@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import antdStyle from "../../App.css";
 import {Menu, Layout} from "antd";
+import styles from "./Sider.module.css"
 import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from "@ant-design/icons";
 
 const {Sider: PageSider} = Layout;
@@ -15,8 +16,6 @@ const getItem = (label: string, key: string, icon?: JSX.Element, children?: any)
 }
 
 const items = [
-    getItem('Option 1', '1', <PieChartOutlined />),
-    getItem('Option 2', '2', <DesktopOutlined />),
     getItem('User', 'sub1', <UserOutlined />, [
         getItem('Tom', '3'),
         getItem('Bill', '4'),
@@ -31,12 +30,12 @@ const items = [
 export const Sider = () => {
     const [collapsed, setCollapsed] = useState(false);
     return (
-        <PageSider
+        <PageSider 
             collapsible collapsed={collapsed}
             onCollapse={(value) => setCollapsed(value)}
-        >
-            <div className={antdStyle["logo"]} />
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+            className = {styles["sider"]}
+        > 
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} className={styles['sider-menu']}/>
         </PageSider>
     );
 };
