@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import antdStyle from "../../App.css";
 import {Menu, Layout} from "antd";
 import styles from "./Sider.module.css"
-import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from "@ant-design/icons";
+import {BarChartOutlined, FileOutlined} from "@ant-design/icons";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const {Sider: PageSider} = Layout;
 
@@ -11,23 +12,19 @@ const getItem = (label: string, key: string, icon?: JSX.Element, children?: any)
         label,
         key,
         icon,
-        children
     };
 }
 
 const items = [
-    getItem('User', 'sub1', <UserOutlined/>, [
-        getItem('Tom', '3'),
-        getItem('Bill', '4'),
-        getItem('Alex', '5'),
-    ]),
-    getItem('Team', 'sub2', <TeamOutlined/>,
-        [getItem('Team 1', '6'),
-            getItem('Team 2', '8')]),
-    getItem('Files', '9', <FileOutlined/>)
+    getItem('assignment', 'assignment', <FileOutlined/>),
+    getItem('result', 'result', <BarChartOutlined/>),
 ];
 
 export const Sider = () => {
+    const navigate = useNavigate();
+    const clickMenu = ({key}:any) => {
+      navigate(`${key}`)
+    }
     const [collapsed, setCollapsed] = useState(false);
     return (
         <PageSider
@@ -35,8 +32,13 @@ export const Sider = () => {
             onCollapse={(value) => setCollapsed(value)}
             className={styles["sider"]}
         >
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items}
-                  className={styles['sider-menu']}/>
+            <Menu theme="dark" 
+                  defaultSelectedKeys={['1']} 
+                  mode="inline" 
+                  items={items}
+                  className={styles['sider-menu']}
+                  onClick={clickMenu}
+            />
         </PageSider>
     );
 };

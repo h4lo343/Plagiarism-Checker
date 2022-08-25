@@ -1,18 +1,12 @@
 import {HomePage, Login, Register} from "./pages";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes, useRoutes} from "react-router-dom";
+import routes from "./routes/index"
 
 const App = () => {
+    const element = useRoutes(routes)
     return (
         <div>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/homepage" element={<HomePage/>}/>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/" element={<Login/>}/>
-                    <Route path="/register" element={<Register/>}/>
-                    <Route path="*" element={<h1>404 not found</h1>}/>
-                </Routes>
-            </BrowserRouter>
+          {element}
         </div>
     );
 };
