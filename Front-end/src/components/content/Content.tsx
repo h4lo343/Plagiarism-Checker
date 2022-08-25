@@ -9,7 +9,7 @@ const {Content: PageContent} = Layout;
 export const Content = () => {
     return (
         <PageContent className={styles.content}>
-            <Breadcrumb />
+            <Breadcrumb/>
             <div
                 className={antdStyle["site-layout-background"]}
                 style={{

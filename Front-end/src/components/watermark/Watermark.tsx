@@ -4,20 +4,20 @@ import styles from "./Watermark.module.css"
 
 
 interface PropsType {
-  left?: string
-  top?: string  
+    left?: string
+    top?: string
 }
 
- 
-export const Watermark: React.FC<PropsType> = ({left="50%", top="50%"}) => {
+
+export const Watermark: React.FC<PropsType> = ({left = "50%", top = "50%"}) => {
 
 
-  return (
-    <div>
-      <img  src={watermark} alt=""  className={styles["watermark"]}
-      style={{top,left}}
-      />
-    </div>
-     
-  )
+    return (
+        <div>
+            <img src={watermark} alt="" className={styles["watermark"]}
+                 style={{top, left}}
+            />
+        </div>
+
+    )
 }

@@ -16,26 +16,27 @@ const getItem = (label: string, key: string, icon?: JSX.Element, children?: any)
 }
 
 const items = [
-    getItem('User', 'sub1', <UserOutlined />, [
+    getItem('User', 'sub1', <UserOutlined/>, [
         getItem('Tom', '3'),
         getItem('Bill', '4'),
         getItem('Alex', '5'),
     ]),
-    getItem('Team', 'sub2', <TeamOutlined />,
+    getItem('Team', 'sub2', <TeamOutlined/>,
         [getItem('Team 1', '6'),
             getItem('Team 2', '8')]),
-    getItem('Files', '9', <FileOutlined />)
+    getItem('Files', '9', <FileOutlined/>)
 ];
 
 export const Sider = () => {
     const [collapsed, setCollapsed] = useState(false);
     return (
-        <PageSider 
+        <PageSider
             collapsible collapsed={collapsed}
             onCollapse={(value) => setCollapsed(value)}
-            className = {styles["sider"]}
-        > 
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} className={styles['sider-menu']}/>
+            className={styles["sider"]}
+        >
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items}
+                  className={styles['sider-menu']}/>
         </PageSider>
     );
 };
