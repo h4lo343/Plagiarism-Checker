@@ -1,16 +1,19 @@
 import React from "react"
 import antdStyle from "../../App.css";
-import {Layout} from "antd";
+import {Divider, Layout, Typography} from "antd";
+import styles from "./Header.module.css";
 
 const {Header: PageHeader} = Layout;
 
-export const Header = () => {
+interface Propstype {
+  headerName: string
+}
+
+export const Header:React.FC<Propstype> = ({headerName}) => {
     return (
-        <PageHeader
-            className={antdStyle["site-layout-background"]}
-            style={{
-                padding: 0,
-            }}
-        />
+        <div className={styles['header']}>
+          <Divider orientation="center"><Typography.Title  level={2}>{headerName} page</Typography.Title></Divider>
+        </div>
+         
     );
 };

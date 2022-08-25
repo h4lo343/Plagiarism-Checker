@@ -11,7 +11,7 @@ const B = () => {
 
 export default [
   {
-    path:'/homepage',
+    path:'/home',
     element:<HomePage/>,
     children: [
       {
@@ -23,8 +23,8 @@ export default [
         element:<B/>
       },
       {
-        path:'/homepage',
-        element:<Navigate to="/assignment"/>
+        path:'/home',
+        element:<Navigate to="/home/assignment"/>
       }
        
     ]
