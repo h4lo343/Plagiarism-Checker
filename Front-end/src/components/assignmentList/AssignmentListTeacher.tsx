@@ -28,7 +28,7 @@ const columns: ColumnsType<AssignmentItem> = [
         key: "subjectName",
     },
     {
-        title: "AssignmentTeacher Name",
+        title: "Assignment Name",
         dataIndex: "assignmentName",
         key: "assignmentName",
     },
