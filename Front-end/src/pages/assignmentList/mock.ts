@@ -5,7 +5,8 @@ export const mockAssignmentList = [{
     subjectName: "M.Eng Project",
     assignmentName: "SCORE Sprint 1",
     createDate: new Date(2022, 7, 1).toDateString(),
-    dueDate: new Date(2022, 7, 22).toDateString()
+    dueDate: new Date(2022, 7, 22).toDateString(),
+    key:1
 }, {
     assignmentId: 2,
     semester: "S2 2023",
@@ -13,5 +14,6 @@ export const mockAssignmentList = [{
     subjectName: "M.Eng Project",
     assignmentName: "SCORE Sprint 2",
     createDate: new Date(2022, 7, 29).toDateString(),
-    dueDate: new Date(2022, 8, 20).toDateString()
+    dueDate: new Date(2022, 8, 20).toDateString(),
+    key:2
 }];

@@ -68,7 +68,7 @@ export const AssignmentListStudent: React.FC<PropsType> = ({
                 showHeader={true}
                 size="small"
                 bordered={false}
-                pagination={false}
+                
             />
         </Skeleton>
     );
