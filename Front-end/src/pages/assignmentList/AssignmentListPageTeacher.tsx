@@ -1,6 +1,6 @@
 import React from "react";
 import {AssignmentListTeacher} from '../../components';
-import styles from './Assignment.module.css'
+import styles from './AssignmentListPage.module.css'
 
 const mockAssignments = [{
     semester: "S2 2023",
@@ -18,7 +18,7 @@ const mockAssignments = [{
     dueDate: new Date(2022, 8, 20).toDateString()
 }];
 
-export const AssignmentTeacher = () => {
+export const AssignmentListPageTeacher = () => {
   return (
     <div className={styles['assign-container']}>
       <div className={styles['teacherAssignTable-container']}>

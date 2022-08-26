@@ -1,7 +1,7 @@
 import React from 'react';
 import {LoginForm} from "../../components";
 
-export const Login: React.FC = () => {
+export const LoginPage: React.FC = () => {
     return (
         <LoginForm/>
     )

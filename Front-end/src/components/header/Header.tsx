@@ -1,21 +1,17 @@
 import React from "react"
-import antdStyle from "../../App.css";
-import {Divider, Layout, Typography} from "antd";
+import {Divider, Typography} from "antd";
 import styles from "./Header.module.css";
 
-const {Header: PageHeader} = Layout;
-
-interface Propstype {
+interface PropType {
   headerName: string
 }
 
-export const Header:React.FC<Propstype> = ({headerName}) => {
+export const Header:React.FC<PropType> = ({headerName}) => {
     return (
         <div className={styles['header']}>
           <Divider orientation="center">
             <Typography.Title  level={2}>{headerName} page</Typography.Title>
           </Divider>
         </div>
-         
     );
 };

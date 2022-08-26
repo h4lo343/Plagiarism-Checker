@@ -41,7 +41,7 @@ const columns: ColumnsType<AssignmentItem> = [
         key: "action",
         render: (_) => (
             <Space size="middle">
-                <a href={"assignment"}>View</a>
+                <a href={"assignment-list/plagiarism-check"}>Enter</a>
             </Space>
         ),
     }

@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {AssignmentListStudent} from '../../components';
-import styles from './Assignment.module.css'
+import styles from './AssignmentListPage.module.css'
 import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
 import {getAssignmentList} from "../../redux/assignmentList/slice";
 import {Spin} from "antd";
@@ -21,7 +21,7 @@ const mockAssignmentList = [{
     dueDate: new Date(2022, 8, 20).toDateString()
 }];
 
-export const AssignmentStudent = () => {
+export const AssignmentListPageStudent = () => {
     /*
     const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
     const loading = useReduxSelector((s) => s.assignmentList.loading);

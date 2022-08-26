@@ -43,12 +43,12 @@ const columns: ColumnsType<AssignmentItem> = [
         key: "dueDate",
     },
     {
-        title: "Manage",
-        key: "manage",
+        title: "Action",
+        key: "action",
         render: (_) => (
             <Space size="middle">
-                <a href={"assignment"}>View</a>
-                <a href={"assignment"}>Delete</a>
+                <a href={"assignment-list/plagiarism-check"}>Enter</a>
+                <a href={"assignment-list"}>Manage</a>
             </Space>
         ),
     }

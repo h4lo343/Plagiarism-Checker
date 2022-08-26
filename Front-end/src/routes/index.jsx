@@ -1,12 +1,12 @@
 import {Navigate} from "react-router-dom";
 import {
     HomePageTeacher,
-    Login,
-    Register,
-    AssignmentStudent,
-    AssignmentTeacher,
-    Result,
-    HomePageStudent
+    LoginPage,
+    RegisterPage,
+    AssignmentListPageStudent,
+    AssignmentListPageTeacher,
+    ResultPage,
+    HomePageStudent, PlagiarismCheckPage
 } from "../pages";
 
 const routes = [
@@ -15,16 +15,24 @@ const routes = [
         element: <HomePageTeacher/>,
         children: [
             {
+                path: 'assignment-list',
+                element: <AssignmentListPageTeacher/>
+            },
+            {
                 path: 'assignment',
-                element: <AssignmentTeacher/>
+                element: <AssignmentListPageTeacher/>
             },
             {
                 path: 'result',
-                element: <Result/>
+                element: <ResultPage/>
+            },
+            {
+                path: 'assignment-list/plagiarism-check',
+                element: <PlagiarismCheckPage/>
             },
             {
                 path: '/teacher',
-                element: <Navigate to="/teacher/assignment"/>
+                element: <Navigate to="/teacher/assignment-list"/>
             }
         ]
     },
@@ -33,26 +41,30 @@ const routes = [
         element: <HomePageStudent/>,
         children: [
             {
-                path: 'assignment',
-                element: <AssignmentStudent/>
+                path: 'assignment-list',
+                element: <AssignmentListPageStudent/>
             },
             {
                 path: 'result',
-                element: <Result/>
+                element: <ResultPage/>
+            },
+            {
+                path: 'assignment-list/plagiarism-check',
+                element: <PlagiarismCheckPage/>
             },
             {
                 path: '/student',
-                element: <Navigate to="/student/assignment"/>
+                element: <Navigate to="/student/assignment-list"/>
             }
         ]
     },
     {
         path: 'login',
-        element: <Login/>
+        element: <LoginPage/>
     },
     {
         path: '/register',
-        element: <Register/>
+        element: <RegisterPage/>
     },
     {
         path: '/',

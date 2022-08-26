@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Result = () => {
+export const ResultPage = () => {
     return (
         <>
             result content
         </>
     )
-}
+};
