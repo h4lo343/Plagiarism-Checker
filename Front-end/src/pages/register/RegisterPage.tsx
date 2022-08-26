@@ -111,7 +111,7 @@ export const RegisterPage: React.FC = () => {
                         register
                     </Button>
                 </Form.Item>
-                <Watermark top='24%' left='68%'/>
+                <Watermark top='29%' left='55%'/>
             </Form>
         </div>
     )

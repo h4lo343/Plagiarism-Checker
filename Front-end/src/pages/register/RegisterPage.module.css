@@ -4,8 +4,8 @@
 
 .register-form {
   position: absolute;
-  margin-left: 20%;
-  margin-top: 9%;
+  left: 24%;
+  top: 20%;
   border: 1px solid black;
   width: 900px;
   height: 400px;

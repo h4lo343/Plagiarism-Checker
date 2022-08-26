@@ -69,7 +69,7 @@ export const LoginPage: React.FC = () => {
                     <Link to="/register" style={{marginLeft: "10px"}}>Register for an account</Link>
 
                 </Form.Item>
-                <Watermark top='24%' left='68%'/>
+                <Watermark top='29%' left='55%'/>
             </Form>
         </div>
 
