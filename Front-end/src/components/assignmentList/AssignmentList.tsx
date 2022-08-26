@@ -3,12 +3,20 @@ import {Skeleton, Space, Table} from "antd";
 import type {ColumnsType} from 'antd/es/table';
 
 interface AssignmentItem {
+    semester: string;
     subjectId: string;
     subjectName: string;
     assignmentName: string;
+    createDate: string;
+    dueDate: string;
 }
 
 const columns: ColumnsType<AssignmentItem> = [
+    {
+        title: "Semester",
+        dataIndex: "semester",
+        key: "semester",
+    },
     {
         title: "Subject Id",
         dataIndex: "subjectId",
@@ -25,14 +33,25 @@ const columns: ColumnsType<AssignmentItem> = [
         key: "assignmentName",
     },
     {
+        title: "Create Date",
+        dataIndex: "createDate",
+        key: "createDate",
+    },
+    {
+        title: "Due Date",
+        dataIndex: "dueDate",
+        key: "dueDate",
+    },
+    {
         title: "Manage",
         key: "manage",
-        render: (_, record) => (
+        render: (_) => (
             <Space size="middle">
-                <a href={"assignment"}>Delete {record.assignmentName}</a>
+                <a href={"assignment"}>View</a>
+                <a href={"assignment"}>Delete</a>
             </Space>
         ),
-    },
+    }
 ];
 
 interface PropsType {
