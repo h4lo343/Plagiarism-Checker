@@ -1,11 +1,15 @@
 import { Navigate } from "react-router-dom";
-import {HomePageTeacher, Login, Register, Assignment, Result} from "../pages"
+import {HomePageTeacher, Login, Register, Assignment, Result, AssignDetailStudent} from "../pages"
 
 export default [
   {
     path:'/teacherHome',
     element:<HomePageTeacher/>,
     children: [
+      {
+        path:'detail/:asID',
+        element:<AssignDetailStudent/>
+      },
       {
         path:'assignment',
         element:<Assignment/>

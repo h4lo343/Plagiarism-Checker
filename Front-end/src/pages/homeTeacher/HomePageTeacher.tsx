@@ -9,6 +9,7 @@ import { useLocation} from "react-router-dom";
 export const HomePageTeacher = () => {
   const location = useLocation();
   const title = location.pathname.substring(location.pathname.lastIndexOf("/")+1, location.pathname.length)
+  if (title)
     return (
         <Layout className={styles.layout}>
             <Sider/>

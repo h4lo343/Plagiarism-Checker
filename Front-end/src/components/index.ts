@@ -7,3 +7,4 @@ export * from "./watermark";
 export * from "./backgroundImage";
 export * from "./uploadBox";
 export * from "./assignmentList";
+export * from "./assignmentAdder"

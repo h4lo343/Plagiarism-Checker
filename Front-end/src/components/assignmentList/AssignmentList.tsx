@@ -1,14 +1,24 @@
 import React from "react";
-import {Skeleton, Space, Table} from "antd";
+import {Skeleton, Space, Table, Pagination} from "antd";
 import type {ColumnsType} from 'antd/es/table';
+import Item from "antd/lib/list/Item";
+import { Link } from "react-router-dom";
 
 interface AssignmentItem {
     subjectId: string;
     subjectName: string;
     assignmentName: string;
+    assignmentID:number;
 }
 
+
+
 const columns: ColumnsType<AssignmentItem> = [
+    {
+        title: "Assignment ID",
+        dataIndex: "assignmentID",
+        key: "assignmentID",
+    },
     {
         title: "Subject Id",
         dataIndex: "subjectId",
@@ -26,13 +36,23 @@ const columns: ColumnsType<AssignmentItem> = [
     },
     {
         title: "Manage",
-        key: "manage",
+        key: "delete",
         render: (_, record) => (
             <Space size="middle">
-                <a href={"assignment"}>Delete {record.assignmentName}</a>
+                <a href={"#"}>Delete</a>
             </Space>
         ),
     },
+    {
+      title: "Manage",
+      key: "enter",
+      render: 
+          (_, record) => (
+          <Space size="middle">
+              <Link to={`/teacherHome/detail/${record.assignmentID}`} replace={true}>Enter</Link>
+          </Space>
+      ),
+  }
 ];
 
 interface PropsType {
@@ -40,11 +60,9 @@ interface PropsType {
     assignments: any;
 }
 
-export const AssignmentList: React.FC<PropsType> = ({
-                                                        loading,
-                                                        assignments,
-                                                    }) => {
+export const AssignmentList: React.FC<PropsType> = ({loading, assignments}) => {
 
+  
 
     return (
         <Skeleton loading={loading} active>
@@ -53,8 +71,9 @@ export const AssignmentList: React.FC<PropsType> = ({
             dataSource={assignments}
             showHeader={true}
             size="small"
-            bordered={false}
-            pagination={false}
+            bordered={true}
+            
+            
         />
         </Skeleton>
     );
