@@ -1,2 +1,2 @@
-export * from "./ResultPage";
+export * from './ResultPage'
 
