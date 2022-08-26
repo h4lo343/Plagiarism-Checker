@@ -4,6 +4,7 @@ import styles from './AssignmentListPage.module.css'
 import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
 import {getAssignmentList} from "../../redux/assignmentList/slice";
 import {Spin} from "antd";
+import {AssignmentAdder} from "../../components/assignmentAdder";
 
 const mockAssignmentList = [{
     semester: "S2 2023",
@@ -61,6 +62,7 @@ export const AssignmentListPageStudent = () => {
         <div className={styles['assign-container']}>
             <div className={styles['teacherAssignTable-container']}>
                 <AssignmentListStudent loading={false} assignments={mockAssignmentList}/>
+                <AssignmentAdder/>
             </div>
         </div>
     )

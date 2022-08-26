@@ -18,7 +18,7 @@ export const AssignmentAdder = () => {
     return (
         <>
             <Button type="primary" onClick={showDrawer} icon={<PlusOutlined/>}>
-                New account
+                New assignment
             </Button>
             <Drawer
                 title="Create a new account"
@@ -37,7 +37,7 @@ export const AssignmentAdder = () => {
                     </Space>
                 }
             >
-                <Form layout="vertical" hideRequiredMark>
+                <Form layout="vertical">
                     <Row gutter={16}>
                         <Col span={12}>
                             <Form.Item
@@ -68,7 +68,7 @@ export const AssignmentAdder = () => {
                                     style={{
                                         width: '100%',
                                     }}
-                                    addonBefore="http://"
+                                    addonBefore="https://"
                                     addonAfter=".com"
                                     placeholder="Please enter url"
                                 />
@@ -88,8 +88,8 @@ export const AssignmentAdder = () => {
                                 ]}
                             >
                                 <Select placeholder="Please select an owner">
-                                    <Option value="xiao">Xiaoxiao Fu</Option>
-                                    <Option value="mao">Maomao Zhou</Option>
+                                    <Option value="Xiangnan">Xiangnan Zhou</Option>
+                                    <Option value="Zhuocun">Zhuocun Tang</Option>
                                 </Select>
                             </Form.Item>
                         </Col>
