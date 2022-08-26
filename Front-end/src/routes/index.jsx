@@ -27,7 +27,7 @@ const routes = [
                 element: <ResultPage/>
             },
             {
-                path: 'assignment-list/plagiarism-check',
+                path: 'assignment-list/:asID/plagiarism-check',
                 element: <PlagiarismCheckPage/>
             },
             {
@@ -49,7 +49,7 @@ const routes = [
                 element: <ResultPage/>
             },
             {
-                path: 'assignment-list/plagiarism-check',
+                path: 'assignment-list/:asID/plagiarism-check',
                 element: <PlagiarismCheckPage/>
             },
             {
