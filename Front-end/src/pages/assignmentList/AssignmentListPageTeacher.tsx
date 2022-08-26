@@ -2,22 +2,9 @@ import React from "react";
 import {AssignmentListTeacher} from '../../components';
 import styles from './AssignmentListPage.module.css'
 import {AssignmentAdder} from "../../components/assignmentAdder";
+import {mockAssignmentList as mockData} from "./mock";
 
-const mockAssignments = [{
-    semester: "S2 2023",
-    subjectId: "SWEN90014",
-    subjectName: "M.Eng Project",
-    assignmentName: "SCORE Sprint 1",
-    createDate: new Date(2022, 7, 1).toDateString(),
-    dueDate: new Date(2022, 7, 22).toDateString()
-},{
-    semester: "S2 2023",
-    subjectId: "SWEN90014",
-    subjectName: "M.Eng Project",
-    assignmentName: "SCORE Sprint 2",
-    createDate: new Date(2022, 7, 29).toDateString(),
-    dueDate: new Date(2022, 8, 20).toDateString()
-}];
+const mockAssignments = mockData;
 
 export const AssignmentListPageTeacher = () => {
   return (
