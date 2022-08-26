@@ -1,1 +1,2 @@
-export * from "./AssignmentList";
+export * from "./AssignmentListTeacher";
+export * from "./AssignmentListStudent";

@@ -1,5 +1,5 @@
 import React from "react";
-import {AssignmentList} from '../../components';
+import {AssignmentListStudent} from '../../components';
 import styles from './Assignment.module.css'
 
 const mockAssignments = [{
@@ -18,12 +18,12 @@ const mockAssignments = [{
     dueDate: new Date(2022, 8, 20).toDateString()
 }];
 
-export const Assignment = () => {
-  return (
-    <div className={styles['assign-container']}>
-      <div className={styles['teacherAssignTable-container']}>
-          <AssignmentList loading={false} assignments={mockAssignments}/>
-      </div>
-    </div>
-  )
+export const AssignmentStudent = () => {
+    return (
+        <div className={styles['assign-container']}>
+            <div className={styles['teacherAssignTable-container']}>
+                <AssignmentListStudent loading={false} assignments={mockAssignments}/>
+            </div>
+        </div>
+    )
 }

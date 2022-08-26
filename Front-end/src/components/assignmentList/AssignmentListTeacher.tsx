@@ -28,7 +28,7 @@ const columns: ColumnsType<AssignmentItem> = [
         key: "subjectName",
     },
     {
-        title: "Assignment Name",
+        title: "AssignmentTeacher Name",
         dataIndex: "assignmentName",
         key: "assignmentName",
     },
@@ -59,22 +59,22 @@ interface PropsType {
     assignments: any;
 }
 
-export const AssignmentList: React.FC<PropsType> = ({
-                                                        loading,
-                                                        assignments,
-                                                    }) => {
+export const AssignmentListTeacher: React.FC<PropsType> = ({
+                                                               loading,
+                                                               assignments,
+                                                           }) => {
 
 
     return (
         <Skeleton loading={loading} active>
-        <Table<AssignmentItem>
-            columns={columns}
-            dataSource={assignments}
-            showHeader={true}
-            size="small"
-            bordered={false}
-            pagination={false}
-        />
+            <Table<AssignmentItem>
+                columns={columns}
+                dataSource={assignments}
+                showHeader={true}
+                size="small"
+                bordered={false}
+                pagination={false}
+            />
         </Skeleton>
     );
 }
