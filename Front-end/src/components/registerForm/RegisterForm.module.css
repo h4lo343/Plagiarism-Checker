@@ -1,0 +1,14 @@
+.input-box {
+    width: 300px;
+}
+
+.register-form {
+    position: absolute;
+    margin-left: 20%;
+    margin-top: 9%;
+    border: 1px solid black;
+    width: 900px;
+    height: 400px;
+    background-color: rgb(240, 242, 245);
+    opacity: 0.8;
+}

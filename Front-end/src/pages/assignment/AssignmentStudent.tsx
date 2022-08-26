@@ -3,6 +3,7 @@ import {AssignmentListStudent} from '../../components';
 import styles from './Assignment.module.css'
 import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
 import {getAssignmentList} from "../../redux/assignmentList/slice";
+import {Spin} from "antd";
 
 const mockAssignmentList = [{
     semester: "S2 2023",
@@ -11,7 +12,7 @@ const mockAssignmentList = [{
     assignmentName: "SCORE Sprint 1",
     createDate: new Date(2022, 7, 1).toDateString(),
     dueDate: new Date(2022, 7, 22).toDateString()
-},{
+}, {
     semester: "S2 2023",
     subjectId: "SWEN90014",
     subjectName: "M.Eng Project",
@@ -21,13 +22,11 @@ const mockAssignmentList = [{
 }];
 
 export const AssignmentStudent = () => {
-
-    const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
     /*
+    const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
     const loading = useReduxSelector((s) => s.assignmentList.loading);
     const error = useReduxSelector((s) => s.assignmentList.error);
     const assignmentList = useReduxSelector((s) => s.assignmentList.assignmentList);
-    */
 
     const dispatch = useReduxDispatch();
 
@@ -35,7 +34,28 @@ export const AssignmentStudent = () => {
         if (jwtToken) {
             dispatch(getAssignmentList(jwtToken));
         }
-    })
+    }, [dispatch, jwtToken])
+
+
+    if (loading) {
+        return (
+            <Spin
+                size="large"
+                style={{
+                    marginTop: 200,
+                    marginBottom: 200,
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    width: "100%",
+                }}
+            />
+        );
+    }
+
+    if (error) {
+        return <div>error：{error}</div>;
+    }
+    */
 
     return (
         <div className={styles['assign-container']}>
