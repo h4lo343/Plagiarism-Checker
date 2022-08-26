@@ -1,5 +1,5 @@
 import {Layout} from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import antdStyle from "../../App.css";
 import styles from "./HomePage.module.css";
 import {Sider, Header, Footer, Content, Watermark} from "../../components";
@@ -7,6 +7,7 @@ import {useLocation} from "react-router-dom";
 
 
 export const HomePageStudent = () => {
+    
     const location = useLocation();
     const title = location.pathname.substring(location.pathname.lastIndexOf("/") + 1, location.pathname.length)
     return (

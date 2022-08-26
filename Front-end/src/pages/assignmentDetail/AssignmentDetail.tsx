@@ -8,8 +8,6 @@ export const AssignmentDetail: React.FC = () => {
     useEffect(() => {
         PubSub.publish("title", `Assignment-${asID}`)
     }, [asID])
-
-
     return (
         <div>
             {asID}
