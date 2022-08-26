@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {AssignmentListStudent} from '../../components';
 import styles from './Assignment.module.css'
+import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
+import {getAssignmentList} from "../../redux/assignmentList/slice";
 
-const mockAssignments = [{
+const mockAssignmentList = [{
     semester: "S2 2023",
     subjectId: "SWEN90014",
     subjectName: "M.Eng Project",
@@ -19,10 +21,26 @@ const mockAssignments = [{
 }];
 
 export const AssignmentStudent = () => {
+
+    const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
+    /*
+    const loading = useReduxSelector((s) => s.assignmentList.loading);
+    const error = useReduxSelector((s) => s.assignmentList.error);
+    const assignmentList = useReduxSelector((s) => s.assignmentList.assignmentList);
+    */
+
+    const dispatch = useReduxDispatch();
+
+    useEffect(() => {
+        if (jwtToken) {
+            dispatch(getAssignmentList(jwtToken));
+        }
+    })
+
     return (
         <div className={styles['assign-container']}>
             <div className={styles['teacherAssignTable-container']}>
-                <AssignmentListStudent loading={false} assignments={mockAssignments}/>
+                <AssignmentListStudent loading={false} assignments={mockAssignmentList}/>
             </div>
         </div>
     )
