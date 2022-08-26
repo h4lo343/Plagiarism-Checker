@@ -3,7 +3,6 @@ import React from 'react';
 import styles from "./Login.module.css"
 import {Watermark} from '../../components';
 import {Link, useNavigate} from 'react-router-dom';
-import {Register} from '../register';
 import {BackgroundImage} from '../../components';
 
 export const Login: React.FC = () => {
@@ -14,8 +13,10 @@ export const Login: React.FC = () => {
     const login = () => {
         const username = form.getFieldValue("username")
         const password = form.getFieldValue("password")
-        if (password === "123" && username === "123") {
-            navigate('/teacherHome')
+        if (password === "123" && username === "student") {
+            navigate('/student')
+        } else if (password === "123" && username === "teacher") {
+            navigate('/teacher')
         }
     }
 
@@ -32,8 +33,8 @@ export const Login: React.FC = () => {
             <BackgroundImage/>
             <Form
                 name="basic"
-                labelCol={{span: 8}}
-                wrapperCol={{span: 16}}
+                labelCol={{span: 6}}
+                wrapperCol={{span: 18}}
                 initialValues={{remember: true}}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
@@ -45,7 +46,7 @@ export const Login: React.FC = () => {
                     label="Username"
                     name="username"
                     rules={[{required: true, message: 'Please input your username!'}]}
-                    style={{marginTop: "10px"}}
+                    style={{marginTop: "60px"}}
                 >
                     <Input className={styles['input-box']}/>
                 </Form.Item>
