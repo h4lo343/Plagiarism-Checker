@@ -1,6 +1,8 @@
 .watermark {
-    position: absolute;
+    position: fixed;
     width: 280px;
     height: 280px;
-    opacity: 0.3;
+    opacity: 0.2;
+    user-select: none;
+    pointer-events: none;
 }
