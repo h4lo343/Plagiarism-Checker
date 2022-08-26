@@ -5,3 +5,4 @@ export * from "./content";
 export * from "./breadcrumb";
 export * from "./watermark";
 export * from "./backgroundImage";
+export * from "./uploadBox";

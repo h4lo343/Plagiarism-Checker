@@ -1,5 +1,4 @@
-import {HomePage, Login, Register} from "./pages";
-import {Route, Routes, useRoutes} from "react-router-dom";
+import {useRoutes} from "react-router-dom";
 import routes from "./routes/index"
 
 const App = () => {

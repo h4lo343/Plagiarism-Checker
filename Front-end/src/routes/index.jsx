@@ -1,30 +1,22 @@
 import { Navigate } from "react-router-dom";
-import {HomePage, Login, Register} from "../pages"
-
-const A = () => {
-  return <div>assignment</div>
-}
-
-const B = () => {
-  return <div>result</div>
-}
+import {HomePageTeacher, Login, Register, Assignment, Result} from "../pages"
 
 export default [
   {
-    path:'/home',
-    element:<HomePage/>,
+    path:'/teacherHome',
+    element:<HomePageTeacher/>,
     children: [
       {
         path:'assignment',
-        element:<A/>
+        element:<Assignment/>
       },
       {
         path:'result',
-        element:<B/>
+        element:<Result/>
       },
       {
-        path:'/home',
-        element:<Navigate to="/home/assignment"/>
+        path:'/teacherHome',
+        element:<Navigate to="/teacherHome/assignment"/>
       }
        
     ]

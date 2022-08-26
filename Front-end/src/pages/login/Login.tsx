@@ -15,7 +15,7 @@ export const Login: React.FC = () => {
         const username = form.getFieldValue("username")
         const password = form.getFieldValue("password")
         if (password === "123" && username === "123") {
-            navigate('/home')
+            navigate('/teacherHome')
         }
     }
 

@@ -12,7 +12,9 @@ interface Propstype {
 export const Header:React.FC<Propstype> = ({headerName}) => {
     return (
         <div className={styles['header']}>
-          <Divider orientation="center"><Typography.Title  level={2}>{headerName} page</Typography.Title></Divider>
+          <Divider orientation="center">
+            <Typography.Title  level={2}>{headerName} page</Typography.Title>
+          </Divider>
         </div>
          
     );
