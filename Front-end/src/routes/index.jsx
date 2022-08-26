@@ -6,7 +6,8 @@ import {
     AssignmentListPageStudent,
     AssignmentListPageTeacher,
     ResultPage,
-    HomePageStudent, PlagiarismCheckPage
+    HomePageStudent,
+    AssignmentDetail
 } from "../pages";
 
 const routes = [
@@ -19,16 +20,12 @@ const routes = [
                 element: <AssignmentListPageTeacher/>
             },
             {
-                path: 'assignment',
-                element: <AssignmentListPageTeacher/>
-            },
-            {
                 path: 'result',
                 element: <ResultPage/>
             },
             {
-                path: 'assignment-list/:asID/plagiarism-check',
-                element: <PlagiarismCheckPage/>
+                path: 'assignment-list/detail/:asID/',
+                element: <AssignmentDetail/>
             },
             {
                 path: '/teacher',
@@ -49,8 +46,8 @@ const routes = [
                 element: <ResultPage/>
             },
             {
-                path: 'assignment-list/:asID/plagiarism-check',
-                element: <PlagiarismCheckPage/>
+                path: 'assignment-list/detail/:asID/',
+                element: <AssignmentDetail/>
             },
             {
                 path: '/student',

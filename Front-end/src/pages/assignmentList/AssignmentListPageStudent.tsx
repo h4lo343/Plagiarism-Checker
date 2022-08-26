@@ -4,9 +4,9 @@ import styles from './AssignmentListPage.module.css'
 import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
 import {getAssignmentList} from "../../redux/assignmentList/slice";
 import {Spin} from "antd";
-import {AssignmentAdder} from "../../components/assignmentAdder";
 
 const mockAssignmentList = [{
+    assignmentId: 1,
     semester: "S2 2023",
     subjectId: "SWEN90014",
     subjectName: "M.Eng Project",
@@ -14,6 +14,7 @@ const mockAssignmentList = [{
     createDate: new Date(2022, 7, 1).toDateString(),
     dueDate: new Date(2022, 7, 22).toDateString()
 }, {
+    assignmentId: 2,
     semester: "S2 2023",
     subjectId: "SWEN90014",
     subjectName: "M.Eng Project",
@@ -62,7 +63,6 @@ export const AssignmentListPageStudent = () => {
         <div className={styles['assign-container']}>
             <div className={styles['teacherAssignTable-container']}>
                 <AssignmentListStudent loading={false} assignments={mockAssignmentList}/>
-                <AssignmentAdder/>
             </div>
         </div>
     )

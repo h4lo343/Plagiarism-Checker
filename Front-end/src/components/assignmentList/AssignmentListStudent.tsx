@@ -1,8 +1,10 @@
 import React from "react";
 import {Skeleton, Space, Table} from "antd";
 import type {ColumnsType} from 'antd/es/table';
+import {Link} from "react-router-dom";
 
 interface AssignmentItem {
+    assignmentId: number;
     semester: string;
     subjectId: string;
     subjectName: string;
@@ -39,9 +41,9 @@ const columns: ColumnsType<AssignmentItem> = [
     {
         title: "Action",
         key: "action",
-        render: (_) => (
+        render: (_, record) => (
             <Space size="middle">
-                <a href={"assignment-list/plagiarism-check"}>Enter</a>
+                <Link to={`detail/${record.assignmentId}`} replace={true}>Enter</Link>
             </Space>
         ),
     }

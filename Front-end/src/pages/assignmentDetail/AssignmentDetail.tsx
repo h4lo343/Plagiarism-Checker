@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {UploadBox} from "../../components";
 
-export const PlagiarismCheckPage: React.FC = () => {
+export const AssignmentDetail: React.FC = () => {
     const {asID} = useParams()
 
     useEffect(() => {

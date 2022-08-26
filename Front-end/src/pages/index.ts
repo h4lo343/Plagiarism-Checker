@@ -3,4 +3,4 @@ export * from "./login";
 export * from "./register";
 export * from "./assignmentList";
 export * from "./result";
-export * from "./plagiarismCheck";
+export * from "./assignmentDetail";
