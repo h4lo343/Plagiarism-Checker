@@ -58,12 +58,12 @@ const columns: ColumnsType<AssignmentItem> = [
 
 interface PropsType {
     loading: boolean;
-    assignments: any;
+    assignmentList: any;
 }
 
 export const AssignmentListTeacher: React.FC<PropsType> = ({
                                                                loading,
-                                                               assignments,
+                                                               assignmentList,
                                                            }) => {
 
 
@@ -71,11 +71,10 @@ export const AssignmentListTeacher: React.FC<PropsType> = ({
         <Skeleton loading={loading} active>
             <Table<AssignmentItem>
                 columns={columns}
-                dataSource={assignments}
+                dataSource={assignmentList}
                 showHeader={true}
                 size="small"
                 bordered={false}
-               
             />
         </Skeleton>
     );
