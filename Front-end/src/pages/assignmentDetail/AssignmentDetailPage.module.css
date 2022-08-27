@@ -1,3 +1,8 @@
-.upload-box {
-    float: bottom;
+.button {
+    float: right;
+}
+
+.database-list {
+    margin-top: 5%;
+    margin-left: 10%;
 }

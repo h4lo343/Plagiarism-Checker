@@ -33,7 +33,7 @@ const columns: ColumnsType<DatabaseItem> = [
         key: "action",
         render: (_, record) => (
             <Space size="middle">
-                <Link to={`detail/${record.assignmentId}`} replace={true}>select</Link>
+                <a>select</a>
             </Space>
         ),
     }

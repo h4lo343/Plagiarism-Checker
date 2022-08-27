@@ -28,7 +28,7 @@ const columns: ColumnsType<FileItem> = [
         key: "action",
         render: (_, record) => (
             <Space size="middle">
-                <Link to={"result"} replace={true}>Select</Link>
+                <a>Select</a>
             </Space>
         ),
     }
