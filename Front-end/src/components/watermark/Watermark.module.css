@@ -1,5 +1,5 @@
 .watermark {
-    position: fixed;
+    position: absolute;
     width: 280px;
     height: 280px;
     opacity: 0.2;
