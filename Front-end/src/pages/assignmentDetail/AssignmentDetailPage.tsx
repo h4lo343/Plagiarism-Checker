@@ -5,7 +5,7 @@ import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
 import {getUploadedFileList} from "../../redux/uploadedFileList/slice";
 import {mockFileList, mockDatabaseList} from "./mock";
 import styles from "./AssignmentDetailPage.module.css";
-import {Col, Row} from "antd";
+import {Button, Col, Row} from "antd";
 
 export const AssignmentDetailPage: React.FC = () => {
     const {asID} = useParams()
@@ -37,6 +37,12 @@ export const AssignmentDetailPage: React.FC = () => {
             <div className={styles["upload-box"]}>
                 <UploadBox/>
             </div>
+            <Button  style={{
+                width: 130,
+                height: 60,
+                fontSize: "20px",
+                borderRadius: 10
+            }}>Check</Button>
         </div>
     )
 };
