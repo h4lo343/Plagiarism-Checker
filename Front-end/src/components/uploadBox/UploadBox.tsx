@@ -18,7 +18,7 @@ export const UploadBox = () => {
             listType="text"
             maxCount={1}
             method={"POST"}
-            accept={'.pdf,.png,.word,.docx,.doc'}
+            accept={'.pdf,.png,.docx,.doc'}
         >
             <Button icon={<UploadOutlined/>}
                     style={{

@@ -47,7 +47,7 @@ export const AssignmentListPageStudent = () => {
     return (
         <div className={styles['assign-container']}>
             <div className={styles['teacherAssignTable-container']}>
-                <AssignmentListStudent loading={false} assignments={mockAssignmentList}/>
+                <AssignmentListStudent loading={false} assignmentList={mockAssignmentList}/>
             </div>
         </div>
     )

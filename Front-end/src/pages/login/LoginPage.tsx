@@ -93,7 +93,7 @@ export const LoginPage = () => {
                     <Link to="/register" style={{marginLeft: "10px"}}>Register for an account</Link>
 
                 </Form.Item>
-                <Watermark top='24%' left='68%'/>
+                <Watermark top='24%' left='60%'/>
             </Form>
         </div>
     )

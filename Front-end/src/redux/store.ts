@@ -3,6 +3,7 @@ import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {persistStore, persistReducer} from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import {authenticationSlice} from "./authentication/slice";
+import {uploadedFileListSlice} from "./uploadedFileList/slice";
 
 const persistConfig = {
     key: "root",
@@ -13,7 +14,8 @@ const persistConfig = {
 const rootReducer = combineReducers(
     {
         assignmentList: assignmentListSlice.reducer,
-        authentication: authenticationSlice.reducer
+        authentication: authenticationSlice.reducer,
+        uploadedFileList: uploadedFileListSlice.reducer
     }
 )
 

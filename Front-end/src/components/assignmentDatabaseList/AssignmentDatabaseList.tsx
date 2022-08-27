@@ -3,30 +3,25 @@ import {Skeleton, Space, Table} from "antd";
 import type {ColumnsType} from 'antd/es/table';
 import {Link} from "react-router-dom";
 
-interface AssignmentItem {
+interface DatabaseItem {
+    databaseId: number;
     assignmentId: number;
     semester: string;
     subjectId: string;
     subjectName: string;
     assignmentName: string;
-    dueDate: string;
 }
 
-const columns: ColumnsType<AssignmentItem> = [
+const columns: ColumnsType<DatabaseItem> = [
+    {
+        title: "database ID",
+        dataIndex: "databaseId",
+        key: "databaseId",
+    },
     {
         title: "Semester",
         dataIndex: "semester",
         key: "semester",
-    },
-    {
-        title: "Subject Id",
-        dataIndex: "subjectId",
-        key: "subjectId",
-    },
-    {
-        title: "Subject Name",
-        dataIndex: "subjectName",
-        key: "subjectName",
     },
     {
         title: "Assignment Name",
@@ -34,16 +29,11 @@ const columns: ColumnsType<AssignmentItem> = [
         key: "assignmentName",
     },
     {
-        title: "Due Date",
-        dataIndex: "dueDate",
-        key: "dueDate",
-    },
-    {
         title: "Action",
         key: "action",
         render: (_, record) => (
             <Space size="middle">
-                <Link to={`detail/${record.assignmentId}`} replace={true}>Enter</Link>
+                <Link to={`detail/${record.assignmentId}`} replace={true}>select</Link>
             </Space>
         ),
     }
@@ -51,20 +41,21 @@ const columns: ColumnsType<AssignmentItem> = [
 
 interface PropsType {
     loading: boolean;
-    assignmentList: any;
+    assignmentDatabaseList: any;
 }
 
-export const AssignmentListStudent: React.FC<PropsType> = ({
+export const AssignmentDatabaseList: React.FC<PropsType> = ({
                                                                loading,
-                                                               assignmentList,
+                                                               assignmentDatabaseList,
                                                            }) => {
 
 
     return (
         <Skeleton loading={loading} active>
-            <Table<AssignmentItem>
+            <Table<DatabaseItem>
+                style={{width: 400}}
                 columns={columns}
-                dataSource={assignmentList}
+                dataSource={assignmentDatabaseList}
                 showHeader={true}
                 size="small"
                 bordered={false}

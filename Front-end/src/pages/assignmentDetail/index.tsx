@@ -1,1 +1,1 @@
-export * from "./AssignmentDetail"
+export * from "./AssignmentDetailPage";
