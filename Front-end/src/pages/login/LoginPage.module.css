@@ -1,8 +1,8 @@
 .input-box {
-  width: 500px;
+  width: 300px;
 }
 
-.register-form {
+.login-form {
   position: absolute;
   left: 24%;
   top: 20%;

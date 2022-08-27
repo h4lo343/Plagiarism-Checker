@@ -1,15 +1,32 @@
 import React from "react";
 import {BackgroundImage} from "../../components";
-import {Button, Checkbox, Form, Input, Select} from 'antd';
+import {Button, Form, Input, Select} from 'antd';
 import styles from "./RegisterPage.module.css"
 import {Watermark} from '../../components';
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export const RegisterPage: React.FC = () => {
 
-    const {Option} = Select
+    const {Option} = Select;
+    const navigate = useNavigate();
 
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
+    const onFinish = async (values: any) => {
+        console.log("Success:", values);
+        navigate("/Login/");
+        /*
+        try {
+            await axios.post("http://localhost:8888/auth/register", {
+                email: values.email,
+                username: values.username,
+                password: values.password,
+                confirmPassword: values.confirm
+            });
+            navigate("/Login/");
+        } catch (error) {
+            alert("Signup failed");
+        }
+        */
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -91,18 +108,18 @@ export const RegisterPage: React.FC = () => {
                     <Input.Password className={styles['input-box']}/>
                 </Form.Item>
 
-                <Form.Item name="type" label="type"
+                <Form.Item name="identity" label="Identity"
                            rules={[{
                                required: true,
-                               message: 'Please select your account type!'
+                               message: 'Please select your account identity!'
                            },]}>
                     <Select
-                        placeholder="Select your account type"
+                        placeholder="Please select your identity"
                         allowClear
                         style={{width: "220px"}}
                     >
-                        <Option value="student">student</Option>
-                        <Option value="teacher">teacher</Option>
+                        <Option value="student">Student</Option>
+                        <Option value="teacher">Teacher</Option>
                     </Select>
                 </Form.Item>
 
@@ -111,11 +128,13 @@ export const RegisterPage: React.FC = () => {
                         register
                     </Button>
                 </Form.Item>
-                <Watermark top='29%' left='55%'/>
+                <Watermark top='24%' left='68%'/>
             </Form>
         </div>
     )
 
 }
 
- 
+
+
+

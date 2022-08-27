@@ -1,14 +1,14 @@
 import {Link, useNavigate} from "react-router-dom";
 import {Button, Checkbox, Form, Input} from "antd";
 import {BackgroundImage} from "../../components";
-import styles from "./LoginForm.module.css";
+import styles from "./LoginPage.module.css";
 import {Watermark} from "../../components";
 import React, {useEffect} from "react";
 import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
 import {login} from "../../redux/authentication/slice";
 
 
-export const LoginForm = () => {
+export const LoginPage = () => {
     /*
         const loading = useReduxSelector((s) => s.authentication.loading);
         const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
