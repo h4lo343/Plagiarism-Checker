@@ -36,7 +36,6 @@ export const getResult = createAsyncThunk(
         const axiosResponse = await axios.get(
             `http://localhost:8888/file/get-mock-result`
         );
-        console.log(axiosResponse.data)
         return axiosResponse.data;
     }
 );

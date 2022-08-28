@@ -4,6 +4,9 @@ import {ResultDetailList, ResultText} from "../../components";
 import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
 import {getResult} from "../../redux/result/slice";
 import {getResultText} from "../../redux/resultText/slice";
+import {mockResultDetail} from "./mock"
+import styles from "./ResultDetail.module.css"
+
 
 export const ResultDetail: React.FC = () => {
     const {resID} = useParams();
@@ -12,16 +15,17 @@ export const ResultDetail: React.FC = () => {
     const resultDetail = useReduxSelector((s) => s.result.resultDetail);
     const resultText = useReduxSelector((s) => s.resultText);
 
+    const data = resultDetail.similarity
 
     useEffect(() => {
-        PubSub.publish("title", `Result for ${resID}`);
+        PubSub.publish("title", `Result`);
         dispatch(getResult());
-        //dispatch(getResultText());
+        dispatch(getResultText());
     }, [])
 
     return (
-        <>
-            <ResultDetailList loading={loading} resultDetail={resultDetail}/>
-        </>
+        <div className={styles['similarity']}>
+            similarity for your assignment: {data}
+        </div>
     )
 }
