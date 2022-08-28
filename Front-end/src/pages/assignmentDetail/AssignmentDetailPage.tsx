@@ -55,7 +55,6 @@ export const AssignmentDetailPage: React.FC = () => {
                 </Col>
             </Row>
 
-            {asID}
 
         </div>
     )

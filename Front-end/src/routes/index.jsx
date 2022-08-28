@@ -8,7 +8,7 @@ import {
     ResultPage,
     HomePageStudent,
     AssignmentDetailPage,
-    ResultDetail
+    ResultDetailPage
 } from "../pages";
 
 const routes = [
@@ -26,7 +26,7 @@ const routes = [
             },
             {
               path: 'result/detail/:resID/',
-              element: <ResultDetail/>
+              element: <ResultDetailPage/>
             },
             {
                 path: 'assignment-list/detail/:asID/',
@@ -52,7 +52,7 @@ const routes = [
             },
             {
                 path: 'result/detail/:resID/',
-                element: <ResultDetail/>
+                element: <ResultDetailPage/>
             },
             {
                 path: 'assignment-list/detail/:asID/',

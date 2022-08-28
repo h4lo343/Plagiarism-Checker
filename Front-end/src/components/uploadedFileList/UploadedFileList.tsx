@@ -1,7 +1,6 @@
 import React from "react";
-import {Skeleton, Space, Table} from "antd";
+import {Skeleton, Table} from "antd";
 import type {ColumnsType} from 'antd/es/table';
-import {Link} from "react-router-dom";
 import {useReduxDispatch} from "../../redux/hooks";
 import {resultSlice} from "../../redux/result/slice";
 
@@ -10,8 +9,6 @@ interface FileItem {
     uploadDate: string;
 }
 
-
-
 interface PropsType {
     uploadedFileList: any;
 }
@@ -19,11 +16,12 @@ interface PropsType {
 export const UploadedFileList: React.FC<PropsType> = ({
                                                           uploadedFileList,
                                                       }) => {
-
+    /*
     const dispatch = useReduxDispatch();
     const onClick = () => {
         dispatch(resultSlice.actions.delete());
     }
+     */
 
     const columns: ColumnsType<FileItem> = [
         {
@@ -45,7 +43,6 @@ export const UploadedFileList: React.FC<PropsType> = ({
         fileName: "No File",
         uploadDate: "No Record"
     };
-
 
     return (
         <Skeleton loading={false} active>

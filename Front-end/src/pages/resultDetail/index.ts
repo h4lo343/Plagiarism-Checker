@@ -1,1 +1,1 @@
-export * from "./ResultDetail"
+export * from "./ResultDetailPage"

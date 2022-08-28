@@ -5,18 +5,18 @@ import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
 import {getResult} from "../../redux/result/slice";
 import {getResultText} from "../../redux/resultText/slice";
 import {mockResultDetail} from "./mock"
-import styles from "./ResultDetail.module.css"
+import styles from "./ResultDetailPage.module.css"
+import {ResultStudent} from "../../components/resultDetailList/ResultStudent";
+import {Col, Row} from "antd";
 
 
-export const ResultDetail: React.FC = () => {
+export const ResultDetailPage: React.FC = () => {
     const {resID} = useParams();
     const dispatch = useReduxDispatch();
     const loading = useReduxSelector((s) => s.result.loading);
     const resultDetail = useReduxSelector((s) => s.result.resultDetail);
-    const resultText = useReduxSelector((s) => s.resultText);
 
-    const similarity = resultDetail.similarity
-    const text = resultDetail.text
+    const resultText = resultDetail.text
 
     useEffect(() => {
         PubSub.publish("title", `Result`);
@@ -25,14 +25,13 @@ export const ResultDetail: React.FC = () => {
     }, [])
 
     return (
-        <div className={styles['similarity']}>
-            <div>
-            similarity for your assignment: {similarity}
-            </div>
-             
-             <div>
-             text: {text} 
-             </div>
-        </div>
+        <Row>
+            <Col span={12}>
+                <ResultStudent resultDetail={resultDetail}/>
+            </Col>
+            <Col span={12}>
+                <ResultText resultText={resultText}/>
+            </Col>
+        </Row>
     )
 }

@@ -15,21 +15,25 @@ const columns: ColumnsType<ResultText> = [
 ];
 
 interface PropsType {
-    loading: boolean;
     resultText: any;
 }
 
 export const ResultText: React.FC<PropsType> = ({
-                                                    loading,
                                                     resultText,
                                                 }) => {
 
 
+    const text: ResultText = resultText ? {
+        resultText: resultText
+    } : {
+        resultText: "No data"
+    };
+
     return (
-        <Skeleton loading={loading} active>
+        <Skeleton loading={false} active>
             <Table<ResultText>
                 columns={columns}
-                dataSource={resultText}
+                dataSource={[text]}
                 showHeader={true}
                 size="small"
                 bordered={false}
