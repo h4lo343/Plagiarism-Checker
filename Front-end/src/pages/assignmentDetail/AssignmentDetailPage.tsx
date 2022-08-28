@@ -48,7 +48,7 @@ export const AssignmentDetailPage: React.FC = () => {
                                 fontSize: "15px",
                                 borderRadius: 10
                             }}
-                            onClick={() => navigate("/student/result")}
+                            onClick={() => navigate("/student/result/detail/SCORE%20Sprint%201")}
                         >
                             Check
                         </Button>
