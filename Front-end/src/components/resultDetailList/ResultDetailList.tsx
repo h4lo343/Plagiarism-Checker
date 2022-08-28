@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 
 interface ResultItem {
     submissionID: number,
+    submitter: string,
     File: string,
     uploadTime: string,
     similarity: string,
@@ -17,6 +18,11 @@ const columns: ColumnsType<ResultItem> = [
         title: "SubmissionID",
         dataIndex: "submissionID",
         key: "submissionID",
+    },
+    {
+        title: "Submitter",
+        dataIndex: "submitter",
+        key: "submitter"
     },
     {
         title: "File",
