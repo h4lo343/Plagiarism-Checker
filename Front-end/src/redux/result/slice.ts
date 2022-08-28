@@ -8,7 +8,7 @@ interface ResultState {
 }
 
 const initialState: ResultState = {
-    loading: true,
+    loading: false,
     error: null,
     resultDetail: null,
 }
@@ -43,7 +43,13 @@ export const getResult = createAsyncThunk(
 export const resultSlice = createSlice({
     name: "result",
     initialState,
-    reducers: {},
+    reducers: {
+        delete: (state) => {
+            state.loading = false;
+            state.error = null;
+            state.resultDetail = null;
+        }
+    },
     extraReducers: {
         [getResult.pending.type]: (state) => {
             state.loading = true;

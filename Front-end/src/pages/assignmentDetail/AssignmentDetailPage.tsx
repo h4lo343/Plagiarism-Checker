@@ -16,20 +16,20 @@ export const AssignmentDetailPage: React.FC = () => {
     const uploadedFileList = useReduxSelector((s) => s.uploadedFileList.fileList);
 
      */
+    const loading = useReduxSelector((s) => s.result.loading);
     const resultDetail = useReduxSelector((s) => s.result.resultDetail);
     const dispatch = useReduxDispatch();
-    const fileName = resultDetail.file;
 
     useEffect(() => {
         PubSub.publish("title", `Assignment-${asID}`);
         dispatch(getResult());
-    }, [asID/*, dispatch, jwtToken*/])
+    }, [asID, dispatch, resultDetail])
 
     return (
         <div>
             <Row>
                 <Col span={9} className={styles["database-list"]}>
-                    {fileName}
+                    <UploadedFileList uploadedFileList={resultDetail}/>
                     <div className={styles.button}>
                         <UploadBox/>
                     </div>
