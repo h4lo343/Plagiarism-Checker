@@ -8,20 +8,20 @@ import {getResultText} from "../../redux/resultText/slice";
 export const ResultDetail: React.FC = () => {
     const {resID} = useParams();
     const dispatch = useReduxDispatch();
-    const JWT = "mock";
+    const loading = useReduxSelector((s) => s.result.loading);
     const resultDetail = useReduxSelector((s) => s.result.resultDetail);
     const resultText = useReduxSelector((s) => s.resultText);
 
 
     useEffect(() => {
         PubSub.publish("title", `Result for ${resID}`);
-        dispatch(getResult(JWT));
-        dispatch(getResultText(JWT));
-    }, [JWT])
+        dispatch(getResult());
+        //dispatch(getResultText());
+    }, [])
 
     return (
         <>
-            <ResultDetailList loading={false} resultDetail={resultDetail}/>
+            <ResultDetailList loading={loading} resultDetail={resultDetail}/>
         </>
     )
 }

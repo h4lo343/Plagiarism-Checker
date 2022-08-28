@@ -32,7 +32,7 @@ export const getResult = createAsyncThunk(
 
 export const getResult = createAsyncThunk(
     "result/getResult",
-    async (JWT: string) => {
+    async () => {
         const axiosResponse = await axios.get(
             `http://localhost:8888/file/get-mock-result`
         );
