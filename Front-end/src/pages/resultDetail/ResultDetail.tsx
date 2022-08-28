@@ -26,8 +26,13 @@ export const ResultDetail: React.FC = () => {
 
     return (
         <div className={styles['similarity']}>
-            similarity for your assignment: {similarity}\
-            text: {text} 
+            <div>
+            similarity for your assignment: {similarity}
+            </div>
+             
+             <div>
+             text: {text} 
+             </div>
         </div>
     )
 }
