@@ -15,7 +15,8 @@ export const ResultDetail: React.FC = () => {
     const resultDetail = useReduxSelector((s) => s.result.resultDetail);
     const resultText = useReduxSelector((s) => s.resultText);
 
-    const data = resultDetail.similarity
+    const similarity = resultDetail.similarity
+    const text = resultDetail.text
 
     useEffect(() => {
         PubSub.publish("title", `Result`);
@@ -25,7 +26,8 @@ export const ResultDetail: React.FC = () => {
 
     return (
         <div className={styles['similarity']}>
-            similarity for your assignment: {data}
+            similarity for your assignment: {similarity}\
+            text: {text} 
         </div>
     )
 }
