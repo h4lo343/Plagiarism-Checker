@@ -34,7 +34,7 @@ export const getResultText = createAsyncThunk(
     "result/getResultText",
     async () => {
         const axiosResponse = await axios.get(
-            `http://localhost:8888/fileText/`
+            `http://localhost:8888/file/get-one-txt/`
         );
         return axiosResponse.data;
     }

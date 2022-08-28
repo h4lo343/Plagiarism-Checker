@@ -3,14 +3,14 @@ import {Skeleton, Table} from "antd";
 import type {ColumnsType} from 'antd/es/table';
 
 interface ResultText {
-    ResultText: string;
+    resultText: string;
 }
 
 const columns: ColumnsType<ResultText> = [
     {
-        title: "Semester",
-        dataIndex: "semester",
-        key: "semester",
+        title: "Result Text",
+        dataIndex: "resultText",
+        key: "resultText",
     }
 ];
 
