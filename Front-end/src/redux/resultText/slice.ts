@@ -32,7 +32,7 @@ export const getResult = createAsyncThunk(
 
 export const getResultText = createAsyncThunk(
     "result/getResultText",
-    async () => {
+    async (JWT: string) => {
         const axiosResponse = await axios.get(
             `http://localhost:8888/file/get-one-txt/`
         );
