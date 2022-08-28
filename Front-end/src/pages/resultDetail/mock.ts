@@ -5,7 +5,6 @@ export const mockResultDetail = [{
   uploadTime: new Date(2022, 7, 1).toDateString(),
   similarity: "90%",
   PorF: "fail"
-  
 }, {
   submissionID: 2,
   submitter: "Bob",
