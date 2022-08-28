@@ -4,13 +4,14 @@ export const mockResultDetail = [{
   file: "12345.pdf",
   uploadTime: new Date(2022, 7, 1).toDateString(),
   similarity: "90%",
-  PorF: "fail"
-  
+  PorF: "fail",
+  resultText: "text"
 }, {
   submissionID: 2,
-  submitter: "Bob",
+  submitter: "john",
   file: "56785.pdf",
   uploadTime: new Date(2022, 4, 12).toDateString(),
   similarity: "10%",
-  PorF: "pass"
+  PorF: "pass",
+  resultText: "text"
 }];

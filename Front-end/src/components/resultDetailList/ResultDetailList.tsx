@@ -1,7 +1,6 @@
 import React from "react";
-import {Skeleton, Space, Table} from "antd";
+import {Skeleton, Table} from "antd";
 import type {ColumnsType} from 'antd/es/table';
-import {Link} from "react-router-dom";
 
 interface ResultItem {
     submissionID: number,
@@ -10,7 +9,6 @@ interface ResultItem {
     uploadTime: string,
     similarity: string,
     PorF: "fail" | "pass"
-
 }
 
 const columns: ColumnsType<ResultItem> = [
@@ -40,29 +38,28 @@ const columns: ColumnsType<ResultItem> = [
         key: "similarity",
     },
     {
-      title: "P/F",
-      dataIndex: "PorF",
-      key: "PorF",
-  },
-     
+        title: "P/F",
+        dataIndex: "PorF",
+        key: "PorF",
+    },
 ];
 
 interface PropsType {
     loading: boolean;
-    resultData: any;
+    resultDetail: any;
 }
 
 export const ResultDetailList: React.FC<PropsType> = ({
-                                                               loading,
-                                                               resultData,
-                                                           }) => {
+                                                          loading,
+                                                          resultDetail,
+                                                      }) => {
 
 
     return (
         <Skeleton loading={loading} active>
             <Table<ResultItem>
                 columns={columns}
-                dataSource={resultData}
+                dataSource={resultDetail}
                 showHeader={true}
                 size="small"
                 bordered={false}

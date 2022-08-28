@@ -9,5 +9,6 @@ export * from "./uploadBox";
 export * from "./assignmentList";
 export * from "./uploadedFileList";
 export * from "./assignmentDatabaseList";
-export * from "./resultList"
-export * from "./resultDetailList"
+export * from "./resultList";
+export * from "./resultDetailList";
+export * from "./resultText";

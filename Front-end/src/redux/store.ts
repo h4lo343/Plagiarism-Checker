@@ -4,6 +4,8 @@ import {persistStore, persistReducer} from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import {authenticationSlice} from "./authentication/slice";
 import {uploadedFileListSlice} from "./uploadedFileList/slice";
+import {getResult, resultSlice} from "./result/slice";
+import {resultTextSlice} from "./resultText/slice";
 
 const persistConfig = {
     key: "root",
@@ -15,7 +17,9 @@ const rootReducer = combineReducers(
     {
         assignmentList: assignmentListSlice.reducer,
         authentication: authenticationSlice.reducer,
-        uploadedFileList: uploadedFileListSlice.reducer
+        uploadedFileList: uploadedFileListSlice.reducer,
+        result: resultSlice.reducer,
+        resultText: resultTextSlice.reducer
     }
 )
 

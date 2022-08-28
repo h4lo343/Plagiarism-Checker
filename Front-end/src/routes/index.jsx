@@ -51,6 +51,10 @@ const routes = [
                 element: <ResultPage/>
             },
             {
+                path: 'result/detail/:resID/',
+                element: <ResultDetail/>
+            },
+            {
                 path: 'assignment-list/detail/:asID/',
                 element: <AssignmentDetailPage/>
             },
