@@ -9,6 +9,14 @@ import {mockAssignmentList as mockData} from "./mock";
 const mockAssignmentList = mockData;
 
 export const AssignmentListPageStudent = () => {
+
+  useEffect(() => {
+    PubSub.publish("title", `Assignment`);
+    /*
+    dispatch(getUploadedFileList(jwtToken));
+     */
+    },[])
+
     /*
     const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
     const loading = useReduxSelector((s) => s.assignmentList.loading);
