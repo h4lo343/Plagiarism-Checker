@@ -6,6 +6,7 @@ import {getUploadedFileList} from "../../redux/uploadedFileList/slice";
 import {mockFileList, mockDatabaseList} from "./mock";
 import styles from "./AssignmentDetailPage.module.css";
 import {Button, Col, Row} from "antd";
+import {getResult} from "../../redux/result/slice";
 
 export const AssignmentDetailPage: React.FC = () => {
     const {asID} = useParams()
@@ -13,24 +14,22 @@ export const AssignmentDetailPage: React.FC = () => {
     /*
     const jwtToken = useReduxSelector((s) => s.authentication.jwtToken) as string;
     const uploadedFileList = useReduxSelector((s) => s.uploadedFileList.fileList);
-    const dispatch = useReduxDispatch();
+
      */
+    const resultDetail = useReduxSelector((s) => s.result.resultDetail);
+    const dispatch = useReduxDispatch();
+    const fileName = resultDetail.file;
 
     useEffect(() => {
         PubSub.publish("title", `Assignment-${asID}`);
-        /*
-        dispatch(getUploadedFileList(jwtToken));
-         */
+        dispatch(getResult());
     }, [asID/*, dispatch, jwtToken*/])
 
     return (
         <div>
             <Row>
                 <Col span={9} className={styles["database-list"]}>
-                    <UploadedFileList
-                        loading={false}
-                        uploadedFileList={mockFileList}
-                    />
+                    {fileName}
                     <div className={styles.button}>
                         <UploadBox/>
                     </div>

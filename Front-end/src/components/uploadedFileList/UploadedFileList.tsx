@@ -44,13 +44,18 @@ export const UploadedFileList: React.FC<PropsType> = ({
                                                           uploadedFileList,
                                                       }) => {
 
+    const fileList: FileItem = uploadedFileList.map((i: any, index: number) => ({
+            key: index,
+            fileName: i.title
+        }));
+
 
     return (
         <Skeleton loading={loading} active>
             <Table<FileItem>
                 style={{width: 400}}
                 columns={columns}
-                dataSource={uploadedFileList}
+                dataSource={[fileList]}
                 showHeader={true}
                 size="small"
                 bordered={false}
