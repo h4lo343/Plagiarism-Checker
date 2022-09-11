@@ -8,7 +8,8 @@ import {
     ResultPage,
     HomePageStudent,
     AssignmentDetailPage,
-    ResultDetailPage
+    StudentResultDetailPage,
+    TeacherResultDetailPage
 } from "../pages";
 
 const routes = [
@@ -26,7 +27,7 @@ const routes = [
             },
             {
               path: 'result/detail/:resID/',
-              element: <ResultDetailPage/>
+              element: <TeacherResultDetailPage/>
             },
             {
                 path: 'assignment-list/detail/:asID/',
@@ -52,7 +53,7 @@ const routes = [
             },
             {
                 path: 'result/detail/:resID/',
-                element: <ResultDetailPage/>
+                element: <StudentResultDetailPage/>
             },
             {
                 path: 'assignment-list/detail/:asID/',
