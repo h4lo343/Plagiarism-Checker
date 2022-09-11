@@ -31,6 +31,7 @@ export const AssignmentAdder = () => {
   const onSubmit = async () => {
     try {
       const result = await form.validateFields();
+      setVisible(false);
     } catch (error) {
       const time = new Date();
     }
