@@ -17,6 +17,7 @@ Front-end/node_modules
 /build
 
 # misc
+.env
 .DS_Store
 .env.local
 .env.development.local
