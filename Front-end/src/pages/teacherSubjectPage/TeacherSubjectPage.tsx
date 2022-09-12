@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { TeacherSubjectList } from "../../components";
 import { mockSubject as SubjectList } from "./mock";
+import { SubjectAdder } from "../../components/subjectAdder";
 
 export const TeacherSubjectPage : React.FC = () => {
 
@@ -12,6 +13,7 @@ export const TeacherSubjectPage : React.FC = () => {
   return (
     <div>
       <TeacherSubjectList loading={false} SubjectList={SubjectList}/>
+      <SubjectAdder/>
     </div>
   )
 }
