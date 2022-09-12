@@ -7,8 +7,8 @@ Front-end/node_modules
 .pnp.js
 
 # temporary files
-# Back-end/raw
-# Back-end/result
+Back-end/raw
+Back-end/result
 
 # testing
 /coverage
@@ -17,7 +17,7 @@ Front-end/node_modules
 /build
 
 # misc
-.env
+Back-end/.env
 .DS_Store
 .env.local
 .env.development.local
