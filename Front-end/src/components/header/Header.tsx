@@ -16,7 +16,7 @@ export const Header: React.FC<PropsType> = () => {
     return (
         <div className={styles['header']}>
             <Divider orientation="center">
-                <Typography.Title level={2}>{title} page</Typography.Title>
+                <Typography.Title level={2}>{title} Page</Typography.Title>
             </Divider>
         </div>
 
