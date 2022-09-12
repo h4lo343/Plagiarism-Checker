@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Menu, Layout} from "antd";
 import styles from "./Sider.module.css"
-import {BarChartOutlined, FileOutlined} from "@ant-design/icons";
+import {BarChartOutlined, FileOutlined, ExperimentOutlined} from "@ant-design/icons";
 import {useNavigate} from "react-router-dom";
 
 const {Sider: PageSider} = Layout;
@@ -15,6 +15,7 @@ const getItem = (label: string, key: string, icon?: JSX.Element) => {
 }
 
 const items = [
+    getItem('subject', 'subject', <ExperimentOutlined/>),
     getItem('assignment', 'assignment-list', <FileOutlined/>),
     getItem('result', 'result', <BarChartOutlined/>),
 ];

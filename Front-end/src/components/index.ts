@@ -12,3 +12,4 @@ export * from "./assignmentDatabaseList";
 export * from "./resultList";
 export * from "./resultDetailList";
 export * from "./resultText";
+export * from "./teacherSubjectList";

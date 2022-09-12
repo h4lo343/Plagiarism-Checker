@@ -4,5 +4,6 @@ export * from "./register";
 export * from "./assignmentList";
 export * from "./result";
 export * from "./assignmentDetail";
-export * from "./studentResultDetailPage"
-export * from "./teacherResultDetailPage"
+export * from "./studentResultDetailPage";
+export * from "./teacherResultDetailPage";
+export * from "./teacherSubjectPage";

@@ -49,7 +49,7 @@ const columns: ColumnsType<AssignmentItem> = [
         key: "action",
         render: (_, record) => (
             <Space size="middle">
-                <Link to={`detail/${record.assignmentName}`} replace={true}>See Result</Link>
+                <Link to={`${record.assignmentName}`} replace={true}>See Result</Link>
             </Space>
         ),
     }

@@ -9,7 +9,8 @@ import {
     HomePageStudent,
     AssignmentDetailPage,
     StudentResultDetailPage,
-    TeacherResultDetailPage
+    TeacherResultDetailPage,
+    TeacherSubjectPage
 } from "../pages";
 
 const routes = [
@@ -26,7 +27,11 @@ const routes = [
                 element: <ResultPage/>
             },
             {
-              path: 'result/detail/:resID/',
+                path:'subject',
+                element: <TeacherSubjectPage/>
+            },
+            {
+              path: 'result/:resID/',
               element: <TeacherResultDetailPage/>
             },
             {
@@ -35,7 +40,7 @@ const routes = [
             },
             {
                 path: '/teacher',
-                element: <Navigate to="/teacher/assignment-list"/>
+                element: <Navigate to="/teacher/subject"/>
             }
         ]
     },
