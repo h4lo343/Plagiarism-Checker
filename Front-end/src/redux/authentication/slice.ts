@@ -28,6 +28,7 @@ export const login = createAsyncThunk(
       password: parameters.password
     }
     );
+    
     return axiosResponse.data;
   }
 );
@@ -52,8 +53,8 @@ export const authenticationSlice = createSlice({
     [login.fulfilled.type]: (state, action) => {
       state.loading = false;
       state.error = null;
-      state.jwtToken = action.payload.jwtToken;
-      state.userType = action.payload.userType;
+      state.jwtToken = action.payload.token;
+      state.userType = action.payload.role;
     },
     [login.rejected.type]: (state, action) => {
       state.loading = false;
@@ -62,3 +63,4 @@ export const authenticationSlice = createSlice({
   }
 });
 
+ 

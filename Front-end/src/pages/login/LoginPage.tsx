@@ -17,6 +17,7 @@ export const LoginPage = () => {
   const selector: TypedUseSelectorHook<RootState> = useSelector
   const token = selector((state) => state.authentication.jwtToken)
   const error = selector((state) => state.authentication.error)
+  const userType = selector((state) => state.authentication.userType)
 
   const openNotification = (description: string, placement: NotificationPlacement) => {
     notification.open(
@@ -32,31 +33,26 @@ export const LoginPage = () => {
   const loading = false;
   const navigate = useNavigate();
   const [form] = Form.useForm();
-  
-  useEffect(()=>{
-    if(token !== null) {
 
+  useEffect(() => {
+    if (token !== null) {
+      if (token == "student") {
+        navigate('/student')
+      }
+      else {
+        navigate('/teacher')
+      }
     }
-  },[token])
-  
-  const mockLogin = () => {
-    const username = form.getFieldValue("username")
-    const password = form.getFieldValue("password")
-    if (password === "123" && username === "student") {
-      navigate('/student')
-    } else if (password === "123" && username === "teacher") {
-      navigate('/teacher')
-    }
-  }
- 
+  }, [token])
+
+   
+
   const dispatch = useDispatch<ReduxDispatch>();
   const onFinish = (values: any) => {
-
     dispatch(login({
       username: values.username,
       password: values.password
     }))
-
     if (error) {
       openNotification("Username or Password incorrect", "top")
     }
@@ -103,7 +99,7 @@ export const LoginPage = () => {
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit" onClick={mockLogin} loading={loading}>
+          <Button type="primary" htmlType="submit" loading={loading}>
             Submit
           </Button>
 
