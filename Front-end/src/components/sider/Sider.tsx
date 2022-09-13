@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Menu, Layout } from "antd";
 import styles from "./Sider.module.css"
-import { BarChartOutlined, FileOutlined, ExperimentOutlined } from "@ant-design/icons";
+import { BarChartOutlined, FileOutlined, ExperimentOutlined, UserDeleteOutlined } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
-import { StringDecoder } from "string_decoder";
+import { ReduxDispatch} from "../../redux/store"
+import { useDispatch } from "react-redux";
+import { authenticationSlice } from "../../redux/authentication/slice";
+
+
 
 const { Sider: PageSider } = Layout;
 
@@ -19,22 +23,34 @@ const items = [
   getItem('Subject', 'subject', <ExperimentOutlined />),
   getItem('Total Assignment', 'assignment-list', <FileOutlined />),
   getItem('Result', 'result', <BarChartOutlined />),
+  getItem('Logout', 'logout', <UserDeleteOutlined />)
 ];
 
 export const Sider = () => {
 
+ 
+
+  const dispatch = useDispatch<ReduxDispatch>();
+
   const [selectedKeys, setSelectedKeys] = useState([''])
   const navigate = useNavigate();
   const clickMenu = ({ key }: any) => {
-    navigate(`${key}`)
+    if (key == 'logout') {
+      dispatch(authenticationSlice.actions.logout())
+      navigate('/')
+    }
+    else {
+      navigate(`${key}`)
+    }
+
   }
   const location = useLocation();
-  const menu = useRef();
   const path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1)
-  useEffect(() => {  
-       setSelectedKeys([path])  
+  useEffect(() => {
+    setSelectedKeys([path])
   }, [path])
   const [collapsed, setCollapsed] = useState(false);
+
   return (
     <PageSider
       collapsible collapsed={collapsed}
