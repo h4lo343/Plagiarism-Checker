@@ -29,12 +29,12 @@ export const Sider = () => {
     navigate(`${key}`)
   }
   const location = useLocation();
-  const menu = useRef();
   const path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1)
-  useEffect(() => {  
-       setSelectedKeys([path])  
+  useEffect(() => {
+    setSelectedKeys([path])
   }, [path])
   const [collapsed, setCollapsed] = useState(false);
+
   return (
     <PageSider
       collapsible collapsed={collapsed}
