@@ -5,12 +5,12 @@ import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
 import {getResult} from "../../redux/result/slice";
 import {getResultText} from "../../redux/resultText/slice";
 import {mockResultDetail} from "./mock"
-import styles from "./ResultDetailPage.module.css"
+import styles from "./StudentResultDetailPage.module.css"
 import {ResultStudent} from "../../components/resultDetailList/ResultStudent";
 import {Col, Row} from "antd";
 
 
-export const ResultDetailPage: React.FC = () => {
+export const StudentResultDetailPage: React.FC = () => {
     const {resID} = useParams();
     const dispatch = useReduxDispatch();
     const loading = useReduxSelector((s) => s.result.loading);

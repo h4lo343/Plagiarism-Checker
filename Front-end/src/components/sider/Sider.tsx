@@ -1,43 +1,70 @@
-import React, {useState} from "react";
-import {Menu, Layout} from "antd";
+import React, { useEffect, useRef, useState } from "react";
+import { Menu, Layout } from "antd";
 import styles from "./Sider.module.css"
-import {BarChartOutlined, FileOutlined} from "@ant-design/icons";
-import {useNavigate} from "react-router-dom";
+import { BarChartOutlined, FileOutlined, ExperimentOutlined, UserDeleteOutlined } from "@ant-design/icons";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ReduxDispatch} from "../../redux/store"
+import { useDispatch } from "react-redux";
+import { authenticationSlice } from "../../redux/authentication/slice";
 
-const {Sider: PageSider} = Layout;
+
+
+const { Sider: PageSider } = Layout;
 
 const getItem = (label: string, key: string, icon?: JSX.Element) => {
-    return {
-        label,
-        key,
-        icon,
-    };
+  return {
+    label,
+    key,
+    icon,
+  };
 }
 
 const items = [
-    getItem('assignment', 'assignment-list', <FileOutlined/>),
-    getItem('result', 'result', <BarChartOutlined/>),
+  getItem('Subject', 'subject', <ExperimentOutlined />),
+  getItem('Total Assignment', 'assignment-list', <FileOutlined />),
+  getItem('Result', 'result', <BarChartOutlined />),
+  getItem('Logout', 'logout', <UserDeleteOutlined />)
 ];
 
 export const Sider = () => {
-    const navigate = useNavigate();
-    const clickMenu = ({key}: any) => {
-        navigate(`${key}`)
+
+ 
+
+  const dispatch = useDispatch<ReduxDispatch>();
+
+  const [selectedKeys, setSelectedKeys] = useState([''])
+  const navigate = useNavigate();
+  const clickMenu = ({ key }: any) => {
+    if (key == 'logout') {
+      dispatch(authenticationSlice.actions.logout())
+      navigate('/')
     }
-    const [collapsed, setCollapsed] = useState(false);
-    return (
-        <PageSider
-            collapsible collapsed={collapsed}
-            onCollapse={(value) => setCollapsed(value)}
-            className={styles["sider"]}
-        >
-            <Menu theme="dark"
-                  defaultSelectedKeys={['1']}
-                  mode="inline"
-                  items={items}
-                  className={styles['sider-menu']}
-                  onClick={clickMenu}
-            />
-        </PageSider>
-    );
+    else {
+      navigate(`${key}`)
+    }
+
+  }
+  const location = useLocation();
+  const path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1)
+  useEffect(() => {
+    setSelectedKeys([path])
+  }, [path])
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <PageSider
+      collapsible collapsed={collapsed}
+      onCollapse={(value) => setCollapsed(value)}
+      className={styles["sider"]}
+    >
+      <Menu theme="dark"
+        defaultSelectedKeys={['1']}
+        mode="inline"
+        items={items}
+        className={styles['sider-menu']}
+        selectedKeys={selectedKeys}
+        onClick={clickMenu}
+      />
+    </PageSider>
+  );
 };
