@@ -6,10 +6,6 @@ Front-end/node_modules
 /.pnp
 .pnp.js
 
-# temporary files
-# Back-end/raw
-# Back-end/result
-
 # testing
 /coverage
 
@@ -36,3 +32,4 @@ gen
 
 # Others
 
+/Back-end/sim_3_0_2
