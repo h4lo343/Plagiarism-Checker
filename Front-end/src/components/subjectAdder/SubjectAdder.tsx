@@ -16,7 +16,7 @@ import React, { useState } from "react";
 
 const { Option } = Select;
 
-export const AssignmentAdder = () => {
+export const SubjectAdder = () => {
   const [visible, setVisible] = useState(false);
   const [form] = useForm();
 
@@ -43,7 +43,7 @@ export const AssignmentAdder = () => {
         New assignment
       </Button>
       <Drawer
-        title="Create a new Assignment"
+        title="Create a new Subject"
         width={720}
         onClose={onClose}
         visible={visible}
@@ -68,11 +68,11 @@ export const AssignmentAdder = () => {
                 rules={[
                   {
                     required: true,
-                    message: "Please enter semester for the assignment",
+                    message: "Please enter semester for the Subject",
                   },
                 ]}
               >
-                <Input placeholder="Please enter semester for the assignment" />
+                <Input placeholder="Please enter semester for the Subject" />
               </Form.Item>
             </Col>
             <Col span={12}>
@@ -117,12 +117,12 @@ export const AssignmentAdder = () => {
             </Col>
             <Col span={12}>
               <Form.Item
-                name="Assignment name"
-                label="Assignment name"
+                name="Professor name"
+                label="Professor name"
                 rules={[
                   {
                     required: true,
-                    message: "Please input the assignment name",
+                    message: "Please input the Professor name",
                   },
                 ]}
               >
@@ -135,7 +135,7 @@ export const AssignmentAdder = () => {
               </Form.Item>
             </Col>
           </Row>
-          <Row gutter={16}>
+          {/* <Row gutter={16}>
             <Col span={12}>
               <FormItem
                 name="Due Date"
@@ -150,7 +150,7 @@ export const AssignmentAdder = () => {
                 <DatePicker style={{width: "100%"}} />
               </FormItem>
             </Col>
-          </Row>
+          </Row> */}
         </Form>
       </Drawer>
     </>
