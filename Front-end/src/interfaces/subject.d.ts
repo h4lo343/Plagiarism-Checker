@@ -2,5 +2,6 @@ interface Subject {
     subjectCode: string;
     subjectName: string;
     teachers: string[];
-    assignments: string[];
+    assignments: string[],
+    _id: string
 }

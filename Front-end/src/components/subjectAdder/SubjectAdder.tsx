@@ -14,13 +14,16 @@ import { useForm } from "antd/es/form/Form";
 import FormItem from "antd/es/form/FormItem";
 import axios from "axios";
 import React, { useState } from "react";
-import { useSelector, TypedUseSelectorHook } from "react-redux";
-import { RootState } from "../../redux/store"
+import { useSelector, TypedUseSelectorHook, useDispatch } from "react-redux";
+import { RootState, ReduxDispatch } from "../../redux/store"
+import { getSubjectList } from "../../redux/subjectList/slice";
+ 
 
 const { Option } = Select;
 
 export const SubjectAdder = () => {
   const selector: TypedUseSelectorHook<RootState> = useSelector
+  const dispatch = useDispatch<ReduxDispatch>();
   const jwtToken = selector((state) => state.authentication.jwtToken)
 
   const [visible, setVisible] = useState(false);
@@ -36,7 +39,6 @@ export const SubjectAdder = () => {
 
   const onClick = async () => {
     try {
-      console.log(jwtToken)
       const result = await form.validateFields();
 
       setVisible(false);
@@ -51,9 +53,11 @@ export const SubjectAdder = () => {
             token: `${jwtToken}`
           }
         }
-
-
       )
+      if (jwtToken) {
+        dispatch(getSubjectList(jwtToken))
+      }
+      
     } catch (error) {
       const time = new Date();
     }
