@@ -40,13 +40,14 @@ export const SubjectAdder = () => {
   const onClick = async () => {
     try {
       const result = await form.validateFields();
-
+     
       setVisible(false);
       await axios.post(`http://localhost:8888/subject/createSubject/`,
 
         {
           subjectCode: result['Subject ID'],
           subjectName: result['Subject Name'],
+          teacherEmail: result['Teacher Email']
         },
         {
           headers: {
@@ -70,7 +71,7 @@ export const SubjectAdder = () => {
       </Button>
       <Drawer
         title="Create a new Subject"
-        width={720}
+        width={570}
         onClose={onClose}
         visible={visible}
         bodyStyle={{
@@ -84,6 +85,7 @@ export const SubjectAdder = () => {
             </Button>
           </Space>
         }
+         
       >
         <Form layout="vertical" form={form} >
           <Row gutter={16}>
@@ -143,20 +145,21 @@ export const SubjectAdder = () => {
             </Col>
             <Col span={12}>
               <Form.Item
-                name="Professor name"
-                label="Professor name"
+                name="Teacher Email"
+                label="teacher Email"
                 rules={[
                   {
                     required: true,
-                    message: "Please input the Professor name",
+                    message: "Please input the Teacher Email"
                   },
+                  { type: "email", message: "it is not a valid email address" }
                 ]}
               >
                 <Input
                   style={{
                     width: "100%",
                   }}
-                  placeholder="Please input the assignment name"
+                  placeholder="Please input the teacher's email"
                 />
               </Form.Item>
             </Col>
