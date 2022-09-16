@@ -15,12 +15,14 @@ const initialState: BufferFileListState = {
 
 export const getBufferFileList = createAsyncThunk(
     "bufferFileList/getBufferFileList",
-    async (jwtToken: string) => {
+    async (parameters: {
+        jwtToken: string | null, subjectCode: string, assignmentName: string
+    }) => {
         const axiosResponse = await axios.get(
-            `http://localhost:8888/assignmentList/`,
+            ``,
             {
                 headers: {
-                    Authorization: `bearer ${jwtToken}`
+                    token: `${parameters.jwtToken}`
                 }
             }
         );
@@ -29,7 +31,7 @@ export const getBufferFileList = createAsyncThunk(
 );
 
 export const bufferFileListSlice = createSlice({
-    name: "assignmentList",
+    name: "bufferFileList",
     initialState,
     reducers: {},
     extraReducers: {
