@@ -4,16 +4,13 @@ import styles from "./AssignmentListPage.module.css";
 import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
 import { getAssignmentList } from "../../redux/assignmentList/slice";
 import { Spin } from "antd";
-import { mockAssignmentList as mockData } from "./mock";
-import { getUploadedFileList } from "../../redux/uploadedFileList/slice";
-
-const mockAssignmentList = mockData;
 
 export const AssignmentListPageStudent = () => {
 
+    const subjectCode = "COMP30001";
     useEffect(() => {
         PubSub.publish("title", `Assignment`);
-        dispatch(getUploadedFileList(jwtToken));
+
     }, []);
 
     const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
@@ -25,7 +22,7 @@ export const AssignmentListPageStudent = () => {
 
     useEffect(() => {
         if (jwtToken) {
-            dispatch(getAssignmentList(jwtToken));
+            dispatch(getAssignmentList({jwtToken, subjectCode}));
         }
     }, [dispatch, jwtToken]);
 

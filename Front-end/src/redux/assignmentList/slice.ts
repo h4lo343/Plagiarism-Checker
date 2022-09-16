@@ -15,15 +15,16 @@ const initialState: AssignmentListState = {
 
 export const getAssignmentList = createAsyncThunk(
     "assignmentList/getAssignmentList",
-    async (jwtToken: string) => {
+    async (parameters: {jwtToken: string | null, subjectCode: string}) => {
         const axiosResponse = await axios.get(
-            `http://localhost:8888/assignmentList/`,
+            `http://localhost:8888/assignment/getAssignmentList?subjectCode=${parameters.subjectCode}`,
             {
                 headers: {
-                    Authorization: `bearer ${jwtToken}`,
+                    token: `${parameters.jwtToken}`,
                 },
             }
         );
+        console.log(axiosResponse)
         return axiosResponse.data;
     }
 );
