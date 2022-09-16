@@ -12,11 +12,17 @@ import {
 } from "antd";
 import { useForm } from "antd/es/form/Form";
 import FormItem from "antd/es/form/FormItem";
+import axios from "axios";
 import React, { useState } from "react";
+import { useSelector, TypedUseSelectorHook } from "react-redux";
+import { RootState } from "../../redux/store"
 
 const { Option } = Select;
 
 export const SubjectAdder = () => {
+  const selector: TypedUseSelectorHook<RootState> = useSelector
+  const jwtToken = selector((state) => state.authentication.jwtToken)
+
   const [visible, setVisible] = useState(false);
   const [form] = useForm();
 
@@ -28,10 +34,26 @@ export const SubjectAdder = () => {
     setVisible(false);
   };
 
-  const onSubmit = async () => {
+  const onClick = async () => {
     try {
+      console.log(jwtToken)
       const result = await form.validateFields();
+
       setVisible(false);
+      await axios.post(`http://localhost:8888/subject/createSubject/`,
+
+        {
+          subjectCode: result['Subject ID'],
+          subjectName: result['Subject Name'],
+        },
+        {
+          headers: {
+            token: `${jwtToken}`
+          }
+        }
+
+
+      )
     } catch (error) {
       const time = new Date();
     }
@@ -53,13 +75,13 @@ export const SubjectAdder = () => {
         extra={
           <Space>
             <Button onClick={onClose}>Cancel</Button>
-            <Button onClick={onSubmit} type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" onClick={onClick}>
               Submit
             </Button>
           </Space>
         }
       >
-        <Form layout="vertical" form={form}>
+        <Form layout="vertical" form={form} >
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item
