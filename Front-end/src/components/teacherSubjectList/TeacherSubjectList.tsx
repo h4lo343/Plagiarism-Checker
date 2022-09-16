@@ -4,19 +4,14 @@ import type { ColumnsType } from 'antd/es/table';
 import { Link } from "react-router-dom";
 
 interface SubjectItem {
-  semester: string,
   subjectId: string,
   subjectName: string,
-  professor: string
+  professor: string[]
 
 }
 
+
 const columns: ColumnsType<SubjectItem> = [
-  {
-    title: "Semester",
-    dataIndex: "semester",
-    key: "semester",
-  },
   {
     title: "SubjectID",
     dataIndex: "subjectId",
@@ -37,7 +32,7 @@ const columns: ColumnsType<SubjectItem> = [
     key: "action",
     render: (_, record) => (
       <Space size="middle">
-        <Link to={`${record.subjectId}`} replace={true}>See Assignment</Link>
+        <Link to={`${record.subjectId}`} replace={true}>Manage Assignment</Link>
       </Space>
     ),
   }

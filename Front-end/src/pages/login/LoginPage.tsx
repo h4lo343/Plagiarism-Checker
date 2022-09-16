@@ -78,9 +78,9 @@ export const LoginPage = () => {
         form={form}
       >
         <Form.Item
-          label="Username"
+          label="Email"
           name="username"
-          rules={[{ required: true, message: 'Please input your username!' }]}
+          rules={[{ required: true, message: 'Please input your email!' }]}
           style={{ marginTop: "80px" }}
         >
           <Input className={styles['input-box']} />

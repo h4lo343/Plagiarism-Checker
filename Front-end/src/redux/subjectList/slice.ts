@@ -4,13 +4,13 @@ import axios from "axios";
 interface SubjectListState {
     loading: boolean;
     error: string | null;
-    assignmentList: Subject[] | null;
+    SubjectList: Subject[] | null;
 }
 
 const initialState: SubjectListState = {
     loading: true,
     error: null,
-    assignmentList: null,
+    SubjectList: null,
 }
 
 export const getSubjectList = createAsyncThunk(
@@ -39,11 +39,11 @@ export const subjectListSlice = createSlice({
         [getSubjectList.fulfilled.type]: (state, action) => {
             state.loading = false;
             state.error = null;
-            state.assignmentList = action.payload;
+            state.SubjectList = action.payload;
         },
-        [getSubjectList.rejected.type]: (state, action: PayloadAction<string | null>) => {
+        [getSubjectList.rejected.type]: (state, action) => {
             state.loading = false;
-            state.error = action.payload;
+            state.error = action.error;
         }
     }
 });
