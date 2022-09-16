@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage";
 import {authenticationSlice} from "./authentication/slice";
 import {uploadedFileListSlice} from "./uploadedFileList/slice";
 import {getResult, resultSlice} from "./result/slice";
+import { subjectListSlice } from "./subjectList/slice"
 import {resultTextSlice} from "./resultText/slice";
 
 const persistConfig = {
@@ -18,6 +19,7 @@ const rootReducer = combineReducers(
         assignmentList: assignmentListSlice.reducer,
         authentication: authenticationSlice.reducer,
         uploadedFileList: uploadedFileListSlice.reducer,
+        subjectList: subjectListSlice.reducer,
         result: resultSlice.reducer,
         resultText: resultTextSlice.reducer
     }

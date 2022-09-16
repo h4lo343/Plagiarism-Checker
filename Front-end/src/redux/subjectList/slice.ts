@@ -17,10 +17,10 @@ export const getSubjectList = createAsyncThunk(
     "subjectList/getSubjectList",
     async (jwtToken: string) => {
         const axiosResponse = await axios.get(
-            `http://localhost:8888/subjectList/`,
+            `http://localhost:8888/subject/getSubjectList/`,
             {
                 headers: {
-                    Authorization: `bearer ${jwtToken}`,
+                    token: `${jwtToken}`,
                 },
             }
         );
