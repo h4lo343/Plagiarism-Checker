@@ -1,23 +1,23 @@
 import {createSlice, createAsyncThunk, PayloadAction,} from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface AssignmentListState {
+interface SubjectListState {
     loading: boolean;
     error: string | null;
-    assignmentList: Assignment[] | null;
+    assignmentList: Subject[] | null;
 }
 
-const initialState: AssignmentListState = {
+const initialState: SubjectListState = {
     loading: true,
     error: null,
     assignmentList: null,
 }
 
-export const getAssignmentList = createAsyncThunk(
-    "assignmentList/getAssignmentList",
+export const getSubjectList = createAsyncThunk(
+    "subjectList/getSubjectList",
     async (jwtToken: string) => {
         const axiosResponse = await axios.get(
-            `http://localhost:8888/assignmentList/`,
+            `http://localhost:8888/subjectList/`,
             {
                 headers: {
                     Authorization: `bearer ${jwtToken}`,
@@ -28,20 +28,20 @@ export const getAssignmentList = createAsyncThunk(
     }
 );
 
-export const assignmentListSlice = createSlice({
-    name: "assignmentList",
+export const subjectListSlice = createSlice({
+    name: "subjectList",
     initialState,
     reducers: {},
     extraReducers: {
-        [getAssignmentList.pending.type]: (state) => {
+        [getSubjectList.pending.type]: (state) => {
             state.loading = true;
         },
-        [getAssignmentList.fulfilled.type]: (state, action) => {
+        [getSubjectList.fulfilled.type]: (state, action) => {
             state.loading = false;
             state.error = null;
             state.assignmentList = action.payload;
         },
-        [getAssignmentList.rejected.type]: (state, action: PayloadAction<string | null>) => {
+        [getSubjectList.rejected.type]: (state, action: PayloadAction<string | null>) => {
             state.loading = false;
             state.error = action.payload;
         }
