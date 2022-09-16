@@ -1,74 +1,69 @@
 import React from "react";
-import {Skeleton, Space, Table} from "antd";
-import type {ColumnsType} from 'antd/es/table';
-import {Link} from "react-router-dom";
+import { Skeleton, Space, Table } from "antd";
+import type { ColumnsType } from "antd/es/table";
+import { Link } from "react-router-dom";
 
-interface AssignmentItem {
-    assignmentId: number;
-    semester: string;
-    subjectId: string;
-    subjectName: string;
-    assignmentName: string;
-    dueDate: string;
-}
-
-const columns: ColumnsType<AssignmentItem> = [
+const columns: ColumnsType<AssignmentData> = [
     {
-        title: "Semester",
-        dataIndex: "semester",
-        key: "semester",
-    },
-    {
-        title: "Subject Id",
-        dataIndex: "subjectId",
-        key: "subjectId",
-    },
-    {
-        title: "Subject Name",
-        dataIndex: "subjectName",
-        key: "subjectName",
+        title: "Subject Code",
+        dataIndex: "subjectCode",
+        key: "subjectCode"
     },
     {
         title: "Assignment Name",
         dataIndex: "assignmentName",
-        key: "assignmentName",
+        key: "assignmentName"
     },
     {
-        title: "Due Date",
+        title: "Due date",
         dataIndex: "dueDate",
-        key: "dueDate",
+        key: "dueDate"
     },
     {
         title: "Action",
         key: "action",
         render: (_, record) => (
             <Space size="middle">
-                <Link to={`detail/${record.assignmentId}`} replace={true}>Enter</Link>
+                <Link to={`detail/${record.assignmentName}`} replace={true}>Enter</Link>
             </Space>
-        ),
+        )
     }
 ];
 
+interface AssignmentData {
+    index: number;
+    subjectCode: string;
+    assignmentName: string;
+    dueDate: string;
+}
+
 interface PropsType {
     loading: boolean;
-    assignmentList: any;
+    assignmentList: Assignment[] | null;
 }
 
 export const AssignmentListStudent: React.FC<PropsType> = ({
                                                                loading,
-                                                               assignmentList,
+                                                               assignmentList
                                                            }) => {
 
+    const assignmentData: AssignmentData[] = assignmentList
+        ? (assignmentList.map((a, index) => ({
+            index: index,
+            subjectCode: a.subjectCode,
+            assignmentName: a.assignmentName,
+            dueDate: a.dueDate
+        }))) : [];
 
     return (
         <Skeleton loading={loading} active>
-            <Table<AssignmentItem>
+            <Table<AssignmentData>
                 columns={columns}
-                dataSource={assignmentList}
+                dataSource={assignmentData}
                 showHeader={true}
                 size="small"
                 bordered={false}
             />
         </Skeleton>
     );
-}
+};
