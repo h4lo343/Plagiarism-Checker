@@ -15,7 +15,7 @@ const initialState: UploadedFileListState = {
 
 export const getUploadedFileList = createAsyncThunk(
     "uploadedFileList/getUploadedFileList",
-    async (jwtToken: string) => {
+    async (jwtToken: string | null) => {
         const axiosResponse = await axios.get(
             `http://localhost:8888/fileList/`,
             {
