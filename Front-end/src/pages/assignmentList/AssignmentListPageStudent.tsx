@@ -1,23 +1,21 @@
-import React, {useEffect} from "react";
-import {AssignmentListStudent} from '../../components';
-import styles from './AssignmentListPage.module.css'
-import {useReduxDispatch, useReduxSelector} from "../../redux/hooks";
-import {getAssignmentList} from "../../redux/assignmentList/slice";
-import {Spin} from "antd";
-import {mockAssignmentList as mockData} from "./mock";
+import React, { useEffect } from "react";
+import { AssignmentListStudent } from "../../components";
+import styles from "./AssignmentListPage.module.css";
+import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
+import { getAssignmentList } from "../../redux/assignmentList/slice";
+import { Spin } from "antd";
+import { mockAssignmentList as mockData } from "./mock";
+import { getUploadedFileList } from "../../redux/uploadedFileList/slice";
 
 const mockAssignmentList = mockData;
 
 export const AssignmentListPageStudent = () => {
 
-  useEffect(() => {
-    PubSub.publish("title", `Assignment`);
-    /*
-    dispatch(getUploadedFileList(jwtToken));
-     */
-    },[])
+    useEffect(() => {
+        PubSub.publish("title", `Assignment`);
+        dispatch(getUploadedFileList(jwtToken));
+    }, []);
 
-    /*
     const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
     const loading = useReduxSelector((s) => s.assignmentList.loading);
     const error = useReduxSelector((s) => s.assignmentList.error);
@@ -29,7 +27,7 @@ export const AssignmentListPageStudent = () => {
         if (jwtToken) {
             dispatch(getAssignmentList(jwtToken));
         }
-    }, [dispatch, jwtToken])
+    }, [dispatch, jwtToken]);
 
 
     if (loading) {
@@ -41,7 +39,7 @@ export const AssignmentListPageStudent = () => {
                     marginBottom: 200,
                     marginLeft: "auto",
                     marginRight: "auto",
-                    width: "100%",
+                    width: "100%"
                 }}
             />
         );
@@ -50,13 +48,13 @@ export const AssignmentListPageStudent = () => {
     if (error) {
         return <div>error：{error}</div>;
     }
-    */
+
 
     return (
-        <div className={styles['assign-container']}>
-            <div className={styles['teacherAssignTable-container']}>
-                <AssignmentListStudent loading={false} assignmentList={mockAssignmentList}/>
+        <div className={styles["assign-container"]}>
+            <div className={styles["teacherAssignTable-container"]}>
+                <AssignmentListStudent loading={loading} assignmentList={assignmentList} />
             </div>
         </div>
-    )
-}
+    );
+};
