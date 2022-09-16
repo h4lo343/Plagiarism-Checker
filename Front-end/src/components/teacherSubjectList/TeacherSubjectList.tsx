@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const columns: ColumnsType<Subject> = [
   {
     title: "SubjectID",
-    dataIndex: "subjectId",
+    dataIndex: "subjectCode",
     key: "subjectId",
   },
   {

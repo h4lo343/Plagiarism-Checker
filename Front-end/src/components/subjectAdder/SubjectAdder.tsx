@@ -14,13 +14,16 @@ import { useForm } from "antd/es/form/Form";
 import FormItem from "antd/es/form/FormItem";
 import axios from "axios";
 import React, { useState } from "react";
-import { useSelector, TypedUseSelectorHook } from "react-redux";
-import { RootState } from "../../redux/store"
+import { useSelector, TypedUseSelectorHook, useDispatch } from "react-redux";
+import { RootState, ReduxDispatch } from "../../redux/store"
+import { getSubjectList } from "../../redux/subjectList/slice";
+ 
 
 const { Option } = Select;
 
 export const SubjectAdder = () => {
   const selector: TypedUseSelectorHook<RootState> = useSelector
+  const dispatch = useDispatch<ReduxDispatch>();
   const jwtToken = selector((state) => state.authentication.jwtToken)
 
   const [visible, setVisible] = useState(false);
@@ -36,24 +39,26 @@ export const SubjectAdder = () => {
 
   const onClick = async () => {
     try {
-      console.log(jwtToken)
       const result = await form.validateFields();
-
+     
       setVisible(false);
       await axios.post(`http://localhost:8888/subject/createSubject/`,
 
         {
           subjectCode: result['Subject ID'],
           subjectName: result['Subject Name'],
+          teacherEmail: result['Teacher Email']
         },
         {
           headers: {
             token: `${jwtToken}`
           }
         }
-
-
       )
+      if (jwtToken) {
+        dispatch(getSubjectList(jwtToken))
+      }
+      
     } catch (error) {
       const time = new Date();
     }
@@ -66,7 +71,7 @@ export const SubjectAdder = () => {
       </Button>
       <Drawer
         title="Create a new Subject"
-        width={720}
+        width={570}
         onClose={onClose}
         visible={visible}
         bodyStyle={{
@@ -80,6 +85,7 @@ export const SubjectAdder = () => {
             </Button>
           </Space>
         }
+         
       >
         <Form layout="vertical" form={form} >
           <Row gutter={16}>
@@ -139,20 +145,21 @@ export const SubjectAdder = () => {
             </Col>
             <Col span={12}>
               <Form.Item
-                name="Professor name"
-                label="Professor name"
+                name="Teacher Email"
+                label="teacher Email"
                 rules={[
                   {
                     required: true,
-                    message: "Please input the Professor name",
+                    message: "Please input the Teacher Email"
                   },
+                  { type: "email", message: "it is not a valid email address" }
                 ]}
               >
                 <Input
                   style={{
                     width: "100%",
                   }}
-                  placeholder="Please input the assignment name"
+                  placeholder="Please input the teacher's email"
                 />
               </Form.Item>
             </Col>

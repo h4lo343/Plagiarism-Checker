@@ -18,26 +18,27 @@ export const TeacherSubjectPage: React.FC = () => {
     PubSub.publish("title", "Subject")
     if (jwtToken) {
       dispatch(getSubjectList(jwtToken))
-      
+       
     }
 
   }, []);
 
-  const TrimmedList = SubjectList.map((item) => {
-    return {
-      subjectId: item.subjectId,
-      subjectName: item.subjectName,
-      professor: item.professor.map((item, index, list) => {
-        if (index != list.length - 1) { return item + ", " }
-        else return item
-      }),
-      key: item.key
+  let list:any[] = []
+  if (subjectList) {
+     list = subjectList.map((item) => {
+      return {
+        ...item,
+        key: item._id
     }
-  })
+    })
+  }
+
+  
+
 
   return (
     <div>
-      <TeacherSubjectList loading={false} SubjectList={TrimmedList} />
+      <TeacherSubjectList loading={false} SubjectList={list} />
       <SubjectAdder />
     </div>
   )
