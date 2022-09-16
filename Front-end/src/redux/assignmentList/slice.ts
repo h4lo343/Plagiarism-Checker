@@ -17,7 +17,7 @@ export const getAssignmentList = createAsyncThunk(
     "assignmentList/getAssignmentList",
     async (parameters: {jwtToken: string | null, subjectCode: string}) => {
         const axiosResponse = await axios.get(
-            `http://localhost:8888/assignment/getAssignmentList?subjectCode=${parameters.subjectCode}`,
+            `http://localhost:8080/assignment/getAssignmentList?subjectCode=${parameters.subjectCode}`,
             {
                 headers: {
                     token: `${parameters.jwtToken}`,

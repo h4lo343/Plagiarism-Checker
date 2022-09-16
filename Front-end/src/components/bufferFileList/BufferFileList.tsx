@@ -1,81 +1,67 @@
 import React from "react";
-import {Skeleton, Space, Table} from "antd";
-import type {ColumnsType} from 'antd/es/table';
-import {Link} from "react-router-dom";
+import { Skeleton, Table } from "antd";
+import type { ColumnsType } from "antd/es/table";
 
-interface AssignmentItem {
-    assignmentId: number;
-    semester: string;
-    subjectId: string;
-    subjectName: string;
+interface bufferFileItem {
+    index: number;
+    userName: string;
+    fileName: string;
+    subjectCode: string;
     assignmentName: string;
-    createDate: string;
-    dueDate: string;
 }
 
-const columns: ColumnsType<AssignmentItem> = [
+const columns: ColumnsType<bufferFileItem> = [
     {
-        title: "Semester",
-        dataIndex: "semester",
-        key: "semester",
+        title: "User Name",
+        dataIndex: "userName",
+        key: "userName"
     },
     {
-        title: "Subject Id",
-        dataIndex: "subjectId",
-        key: "subjectId",
+        title: "File Name",
+        dataIndex: "fileName",
+        key: "fileName"
     },
     {
-        title: "Subject Name",
-        dataIndex: "subjectName",
-        key: "subjectName",
+        title: "Subject Code",
+        dataIndex: "subjectCode",
+        key: "subjectCode"
     },
     {
         title: "Assignment Name",
         dataIndex: "assignmentName",
-        key: "assignmentName",
-    },
-    {
-        title: "Create Date",
-        dataIndex: "createDate",
-        key: "createDate",
-    },
-    {
-        title: "Due Date",
-        dataIndex: "dueDate",
-        key: "dueDate",
-    },
-    {
-        title: "Action",
-        key: "action",
-        render: (_, record) => (
-            <Space size="middle">
-                <Link to={`detail/${record.assignmentId}`} replace={true}>Enter</Link>
-                <a href={"assignment-list"}>Manage</a>
-            </Space>
-        ),
+        key: "assignmentName"
     }
 ];
 
 interface PropsType {
     loading: boolean;
-    assignmentList: any;
+    bufferFileList: BufferFile[] | null;
 }
 
 export const BufferFileList: React.FC<PropsType> = ({
-                                                               loading,
-                                                               assignmentList,
-                                                           }) => {
+                                                        loading,
+                                                        bufferFileList
+                                                    }) => {
 
+
+    const bufferFileData: bufferFileItem[] = bufferFileList
+        ? (bufferFileList.map((b, index) => ({
+            index: index,
+            subjectCode: b.subjectCode,
+            assignmentName: b.assignmentName,
+            fileName: b.fileName,
+            userName: b.userName
+        }))) : [];
 
     return (
         <Skeleton loading={loading} active>
-            <Table<AssignmentItem>
+            <Table<bufferFileItem>
                 columns={columns}
-                dataSource={assignmentList}
+                dataSource={bufferFileData}
                 showHeader={true}
                 size="small"
                 bordered={false}
             />
         </Skeleton>
     );
-}
+};

@@ -9,7 +9,6 @@ export const AssignmentListPageTeacher = () => {
 
     useEffect(() => {
         PubSub.publish("title", `Assignment`);
-        dispatch(getUploadedFileList(jwtToken));
     }, []);
 
     const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
