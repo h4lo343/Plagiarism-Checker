@@ -19,7 +19,7 @@ export const getBufferFileList = createAsyncThunk(
         jwtToken: string | null, subjectCode: string, assignmentName: string
     }) => {
         const axiosResponse = await axios.get(
-            ``,
+            `http://localhost:8888/buffer/getBufferFileList?subjectCode=${parameters.subjectCode}&assignmentName=${parameters.assignmentName}`,
             {
                 headers: {
                     token: `${parameters.jwtToken}`

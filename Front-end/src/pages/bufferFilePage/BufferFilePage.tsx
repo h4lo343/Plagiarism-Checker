@@ -17,8 +17,8 @@ export const BufferFilePage = () => {
     const bufferFileList = useReduxSelector((s) => s.bufferFileList.bufferFileList);
 
     const dispatch = useReduxDispatch();
-    const subjectCode = "COMP30001";
-    const assignmentName = ""
+    const subjectCode = "COMP30005";
+    const assignmentName = "asmt1"
     useEffect(() => {
         if (jwtToken) {
             dispatch(getBufferFileList({jwtToken, subjectCode, assignmentName}));
