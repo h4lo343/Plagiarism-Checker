@@ -3,20 +3,9 @@ import { Skeleton, Space, Table } from "antd";
 import type { ColumnsType } from 'antd/es/table';
 import { Link } from "react-router-dom";
 
-interface SubjectItem {
-  semester: string,
-  subjectId: string,
-  subjectName: string,
-  professor: string
 
-}
 
-const columns: ColumnsType<SubjectItem> = [
-  {
-    title: "Semester",
-    dataIndex: "semester",
-    key: "semester",
-  },
+const columns: ColumnsType<Subject> = [
   {
     title: "SubjectID",
     dataIndex: "subjectId",
@@ -37,7 +26,7 @@ const columns: ColumnsType<SubjectItem> = [
     key: "action",
     render: (_, record) => (
       <Space size="middle">
-        <Link to={`${record.subjectId}`} replace={true}>See Assignment</Link>
+        <Link to={`${record.subjectCode}`} replace={true}>Manage Assignment</Link>
       </Space>
     ),
   }
@@ -45,7 +34,7 @@ const columns: ColumnsType<SubjectItem> = [
 
 interface PropsType {
   loading: boolean,
-  SubjectList: any
+  SubjectList: any | null
 }
 
 export const TeacherSubjectList: React.FC<PropsType> = ({
@@ -56,7 +45,7 @@ export const TeacherSubjectList: React.FC<PropsType> = ({
 
   return (
     <Skeleton loading={loading} active>
-      <Table<SubjectItem>
+      <Table
         columns={columns}
         dataSource={SubjectList}
         showHeader={true}

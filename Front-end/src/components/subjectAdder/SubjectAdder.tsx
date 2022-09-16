@@ -40,7 +40,7 @@ export const SubjectAdder = () => {
   return (
     <>
       <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
-        New assignment
+        New Subject
       </Button>
       <Drawer
         title="Create a new Subject"
