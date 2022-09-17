@@ -14,7 +14,7 @@ export const UploadBox = () => {
     const headers: HttpRequestHeader = {
         token: jwtToken ? jwtToken : ""
     };
-    const body = { "subjectCode": subjectCode, "assignment": assignmentName };
+    const body = { "subjectCode": subjectCode, "assignmentName": assignmentName };
     const onUpload = () => {
         dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
     };
