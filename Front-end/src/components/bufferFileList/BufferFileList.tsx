@@ -1,9 +1,10 @@
 import React from "react";
 import { Button, Skeleton, Space, Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
-import { deleteBufferFile } from "../../redux/bufferFileList/slice";
+import { deleteBufferFile, getBufferFileList } from "../../redux/bufferFileList/slice";
+import { wait } from "@testing-library/user-event/dist/utils";
 
 interface bufferFileItem {
     index: number;
@@ -25,8 +26,13 @@ export const BufferFileList: React.FC<PropsType> = ({
 
     const dispatch = useReduxDispatch();
     const jwtToken = useReduxSelector(s => s.authentication.jwtToken);
+    const { subjectCode, assignmentName } = useParams();
     const onDelete = (fileId: string) => {
-        dispatch(deleteBufferFile({jwtToken, fileId}))
+        dispatch(deleteBufferFile({ jwtToken, fileId }));
+        setTimeout(() => {
+            dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
+        }, 1500)
+
     };
     const columns: ColumnsType<bufferFileItem> = [
         {
@@ -53,7 +59,7 @@ export const BufferFileList: React.FC<PropsType> = ({
     const bufferFileData: bufferFileItem[] = bufferFileList
         ? (bufferFileList.map((b, index) => ({
             index: index,
-            fileId: b.fileId,
+            fileId: b._id,
             fileName: b.fileName,
             userName: b.userName
         }))) : [];

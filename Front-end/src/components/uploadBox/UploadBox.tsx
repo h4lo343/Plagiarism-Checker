@@ -16,7 +16,9 @@ export const UploadBox = () => {
     };
     const data = { "subjectCode": subjectCode, "assignment": assignmentName };
     const onUpload = () => {
-        dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
+        setTimeout(() => {
+            dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
+        }, 1500)
     };
     return (
         <Space
@@ -45,7 +47,6 @@ export const UploadBox = () => {
                             fontSize: "15px",
                             borderRadius: 10
                         }}
-
                 >
                     Upload
                 </Button>

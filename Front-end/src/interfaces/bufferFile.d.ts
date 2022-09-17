@@ -1,7 +1,8 @@
 interface BufferFile {
-    fileId: string;
+    _id: string;
     userName: string;
     subjectCode: string;
     assignmentName: string;
     fileName: string;
+    dataType: string;
 }
