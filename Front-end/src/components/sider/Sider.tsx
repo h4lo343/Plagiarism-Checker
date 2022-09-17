@@ -39,7 +39,7 @@ export const Sider = () => {
       navigate('/')
     }
     else {
-      navigate(`${key}`)
+      navigate(`${key}`, {replace: true})
     }
 
   }
