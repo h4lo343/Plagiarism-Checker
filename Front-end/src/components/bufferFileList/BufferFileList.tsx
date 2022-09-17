@@ -30,7 +30,7 @@ export const BufferFileList: React.FC<PropsType> = ({
         dispatch(deleteBufferFile({ jwtToken, fileId }));
         setTimeout(() => {
             dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
-        }, 1200)
+        }, 1200);
 
     };
     const columns: ColumnsType<bufferFileItem> = [

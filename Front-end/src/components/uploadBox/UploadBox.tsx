@@ -14,11 +14,9 @@ export const UploadBox = () => {
     const headers: HttpRequestHeader = {
         token: jwtToken ? jwtToken : ""
     };
-    const data = { "subjectCode": subjectCode, "assignment": assignmentName };
+    const body = { "subjectCode": subjectCode, "assignment": assignmentName };
     const onUpload = () => {
-        setTimeout(() => {
-            dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
-        }, 1200)
+        dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
     };
     return (
         <Space
@@ -30,11 +28,10 @@ export const UploadBox = () => {
             size={"large"}
         >
             <Upload
-                data={data}
+                data={body}
                 action={"http://localhost:8888/file/upload-files"}
                 headers={headers}
                 listType="text"
-                maxCount={1}
                 method={"POST"}
                 accept={".pdf,.png,.docx,.doc"}
                 onChange={onUpload}
