@@ -21,32 +21,33 @@ export const AssignmentDetailPage: React.FC = () => {
     const bufferFileLoading = useReduxSelector((s) => s.bufferFileList.loading);
     const bufferFileList = useReduxSelector((s) => s.bufferFileList.bufferFileList);
     //const resultDetail = useReduxSelector((s) => s.result.resultDetail);
-    const {subjectCode, assignmentName} = useParams();
-    console.log(subjectCode, assignmentName)
+    const { subjectCode, assignmentName } = useParams();
+    console.log(subjectCode, assignmentName);
     const dispatch = useReduxDispatch();
     useEffect(() => {
+        PubSub.publish("title", assignmentName);
         if (jwtToken) {
-            dispatch(getBufferFileList({jwtToken, subjectCode, assignmentName}));
+            dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
         }
     }, [dispatch, jwtToken]);
 
 
-/*
-    useEffect(() => {
-        PubSub.publish("title", `Assignment-${assignmentName}`);
-        dispatch(getResult());
-    }, [assignmentName, dispatch, resultDetail]);
+    /*
+        useEffect(() => {
+            PubSub.publish("title", `Assignment-${assignmentName}`);
+            dispatch(getResult());
+        }, [assignmentName, dispatch, resultDetail]);
 
- */
+     */
 
     return (
         <div>
             <Row>
                 <Col span={9} className={styles["database-list"]}>
                     {/*<UploadedFileList uploadedFileList={resultDetail} />*/}
-                    <BufferFileList loading={bufferFileLoading} bufferFileList={bufferFileList}/>
+                    <BufferFileList loading={bufferFileLoading} bufferFileList={bufferFileList} />
                     <div className={styles.button}>
-                        <UploadBox  />
+                        <UploadBox />
                     </div>
                 </Col>
                 <Col span={9} className={styles["database-list"]}>

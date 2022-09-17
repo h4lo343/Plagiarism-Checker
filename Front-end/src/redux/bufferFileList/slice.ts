@@ -30,6 +30,26 @@ export const getBufferFileList = createAsyncThunk(
     }
 );
 
+export const deleteBufferFile = createAsyncThunk(
+    "bufferFileList/deleteBufferFile",
+    async (parameters: {
+        jwtToken: string | null, fileId: string | null
+    }) => {
+        const axiosResponse = await axios.post(
+            `http://localhost:8888/buffer/deleteFile`,
+            {
+                _id: parameters.fileId
+            },
+            {
+                headers: {
+                    token: `${parameters.jwtToken}`
+                }
+            }
+        );
+        return axiosResponse.data;
+    }
+);
+
 export const bufferFileListSlice = createSlice({
     name: "bufferFileList",
     initialState,

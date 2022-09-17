@@ -1,37 +1,17 @@
 import React from "react";
-import { Skeleton, Table } from "antd";
+import { Button, Skeleton, Space, Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
+import { Link } from "react-router-dom";
+import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
+import { deleteBufferFile } from "../../redux/bufferFileList/slice";
 
 interface bufferFileItem {
     index: number;
+    fileId: string;
     userName: string;
     fileName: string;
-    subjectCode: string;
-    assignmentName: string;
 }
 
-const columns: ColumnsType<bufferFileItem> = [
-    {
-        title: "User Name",
-        dataIndex: "userName",
-        key: "userName"
-    },
-    {
-        title: "File Name",
-        dataIndex: "fileName",
-        key: "fileName"
-    },
-    {
-        title: "Subject Code",
-        dataIndex: "subjectCode",
-        key: "subjectCode"
-    },
-    {
-        title: "Assignment Name",
-        dataIndex: "assignmentName",
-        key: "assignmentName"
-    }
-];
 
 interface PropsType {
     loading: boolean;
@@ -43,12 +23,37 @@ export const BufferFileList: React.FC<PropsType> = ({
                                                         bufferFileList
                                                     }) => {
 
+    const dispatch = useReduxDispatch();
+    const jwtToken = useReduxSelector(s => s.authentication.jwtToken);
+    const onDelete = (fileId: string) => {
+        dispatch(deleteBufferFile({jwtToken, fileId}))
+    };
+    const columns: ColumnsType<bufferFileItem> = [
+        {
+            title: "User Name",
+            dataIndex: "userName",
+            key: "userName"
+        },
+        {
+            title: "File Name",
+            dataIndex: "fileName",
+            key: "fileName"
+        },
+        {
+            title: "Action",
+            key: "action",
+            render: (_, record) => (
+                <Space size="middle">
+                    <button onClick={() => onDelete(record.fileId)}>Delete</button>
+                </Space>
+            )
+        }
+    ];
 
     const bufferFileData: bufferFileItem[] = bufferFileList
         ? (bufferFileList.map((b, index) => ({
             index: index,
-            subjectCode: b.subjectCode,
-            assignmentName: b.assignmentName,
+            fileId: b.fileId,
             fileName: b.fileName,
             userName: b.userName
         }))) : [];
