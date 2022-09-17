@@ -1,4 +1,4 @@
-import {Navigate} from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import {
     HomePageTeacher,
     LoginPage,
@@ -12,75 +12,88 @@ import {
     TeacherResultDetailPage,
     TeacherSubjectPage
 } from "../pages";
+import { BufferFilePage } from "../pages/bufferFilePage/BufferFilePage";
 
 const routes = [
     {
-        path: '/teacher',
-        element: <HomePageTeacher/>,
+        path: "/teacher",
+        element: <HomePageTeacher />,
         children: [
             {
-                path: 'assignment-list',
-                element: <AssignmentListPageTeacher/>
+                path: "assignment-list",
+                element: <AssignmentListPageTeacher />
             },
             {
-                path: 'result',
-                element: <ResultPage/>
+                path: "subject/:subjectCode/",
+                element: <AssignmentListPageTeacher />
             },
             {
-                path:'subject',
-                element: <TeacherSubjectPage/>
+                path: "subject/:subjectCode/:assignmentName",
+                element: <AssignmentDetailPage />
             },
             {
-              path: 'result/:resID/',
-              element: <TeacherResultDetailPage/>
+                path: "result",
+                element: <ResultPage />
             },
             {
-                path: 'assignment-list/detail/:asID/',
-                element: <AssignmentDetailPage/>
+                path: "subject",
+                element: <TeacherSubjectPage />
             },
             {
-                path: '/teacher',
-                element: <Navigate to="/teacher/subject"/>
+                path: "subject/:subjectCode/:assignmentName/bufferFiles",
+                element: <BufferFilePage />
+            },
+            {
+                path: "result/:resID/",
+                element: <TeacherResultDetailPage />
+            },
+            {
+                path: "assignment-list/detail/:asID/",
+                element: <AssignmentDetailPage />
+            },
+            {
+                path: "/teacher",
+                element: <Navigate to="/teacher/subject" />
             }
         ]
     },
     {
-        path: '/student',
-        element: <HomePageStudent/>,
+        path: "/student",
+        element: <HomePageStudent />,
         children: [
             {
-                path: 'assignment-list',
-                element: <AssignmentListPageStudent/>
+                path: "assignment-list",
+                element: <AssignmentListPageStudent />
             },
             {
-                path: 'result',
-                element: <ResultPage/>
+                path: "result",
+                element: <ResultPage />
             },
             {
-                path: 'result/detail/:resID/',
-                element: <StudentResultDetailPage/>
+                path: "result/detail/:resID/",
+                element: <StudentResultDetailPage />
             },
             {
-                path: 'assignment-list/detail/:asID/',
-                element: <AssignmentDetailPage/>
+                path: "assignment-list/detail/:asID/",
+                element: <AssignmentDetailPage />
             },
             {
-                path: '/student',
-                element: <Navigate to="/student/assignment-list"/>
+                path: "/student",
+                element: <Navigate to="/student/assignment-list" />
             }
         ]
     },
     {
-        path: 'login',
-        element: <LoginPage/>
+        path: "login",
+        element: <LoginPage />
     },
     {
-        path: '/register',
-        element: <RegisterPage/>
+        path: "/register",
+        element: <RegisterPage />
     },
     {
-        path: '/',
-        element: <Navigate to="/login"/>
+        path: "/",
+        element: <Navigate to="/login" />
     }
 ];
 

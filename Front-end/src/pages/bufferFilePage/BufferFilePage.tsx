@@ -1,28 +1,27 @@
 import React, { useEffect } from "react";
-import { AssignmentListStudent, AssignmentListTeacher } from "../../components";
-import styles from "./AssignmentListPage.module.css";
+import styles from "./BufferFilePage.module.css";
 import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
-import { getAssignmentList } from "../../redux/assignmentList/slice";
 import { Spin } from "antd";
-import { useLocation, useParams } from "react-router-dom";
+import { getBufferFileList } from "../../redux/bufferFileList/slice";
+import { BufferFileList } from "../../components/bufferFileList/BufferFileList";
 
-export const AssignmentListPageTeacher = () => {
+export const BufferFilePage = () => {
 
-    const { subjectCode } = useParams();
-    console.log(subjectCode)
     useEffect(() => {
         PubSub.publish("title", `Assignment`);
     }, []);
 
     const jwtToken = useReduxSelector((s) => s.authentication.jwtToken);
-    const loading = useReduxSelector((s) => s.assignmentList.loading);
-    const error = useReduxSelector((s) => s.assignmentList.error);
-    const assignmentList = useReduxSelector((s) => s.assignmentList.assignmentList);
+    const loading = useReduxSelector((s) => s.bufferFileList.loading);
+    const error = useReduxSelector((s) => s.bufferFileList.error);
+    const bufferFileList = useReduxSelector((s) => s.bufferFileList.bufferFileList);
 
     const dispatch = useReduxDispatch();
+    const subjectCode = "COMP30005";
+    const assignmentName = "asmt1"
     useEffect(() => {
         if (jwtToken) {
-            dispatch(getAssignmentList({jwtToken, subjectCode}));
+            dispatch(getBufferFileList({jwtToken, subjectCode, assignmentName}));
         }
     }, [dispatch, jwtToken]);
 
@@ -50,7 +49,7 @@ export const AssignmentListPageTeacher = () => {
     return (
         <div className={styles["assign-container"]}>
             <div className={styles["teacherAssignTable-container"]}>
-                <AssignmentListTeacher loading={loading} assignmentList={assignmentList} />
+                <BufferFileList loading={loading} bufferFileList={bufferFileList} />
             </div>
         </div>
     );
