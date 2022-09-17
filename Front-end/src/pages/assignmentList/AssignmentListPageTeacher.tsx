@@ -4,9 +4,13 @@ import styles from "./AssignmentListPage.module.css";
 import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
 import { getAssignmentList } from "../../redux/assignmentList/slice";
 import { Spin } from "antd";
+import { useLocation } from "react-router-dom";
 
 export const AssignmentListPageTeacher = () => {
 
+    const location = useLocation();
+    const subjectCode = location.pathname.slice(17);
+    console.log(subjectCode)
     useEffect(() => {
         PubSub.publish("title", `Assignment`);
     }, []);
@@ -17,7 +21,6 @@ export const AssignmentListPageTeacher = () => {
     const assignmentList = useReduxSelector((s) => s.assignmentList.assignmentList);
 
     const dispatch = useReduxDispatch();
-    const subjectCode = "COMP30001";
     useEffect(() => {
         if (jwtToken) {
             dispatch(getAssignmentList({jwtToken, subjectCode}));

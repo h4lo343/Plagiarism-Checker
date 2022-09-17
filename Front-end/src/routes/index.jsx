@@ -24,6 +24,10 @@ const routes = [
                 element: <AssignmentListPageTeacher />
             },
             {
+                path: "subject/:subjectCode/",
+                element: <AssignmentListPageTeacher />
+            },
+            {
                 path: "result",
                 element: <ResultPage />
             },
@@ -46,8 +50,7 @@ const routes = [
             {
                 path: "/teacher",
                 element: <Navigate to="/teacher/subject" />
-            },
-
+            }
         ]
     },
     {

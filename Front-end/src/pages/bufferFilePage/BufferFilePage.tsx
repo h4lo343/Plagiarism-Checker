@@ -23,7 +23,7 @@ export const BufferFilePage = () => {
         if (jwtToken) {
             dispatch(getBufferFileList({jwtToken, subjectCode, assignmentName}));
         }
-    }, [dispatch, jwtToken, bufferFileList]);
+    }, [dispatch, jwtToken]);
 
 
     if (loading) {
