@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { AssignmentDatabaseList, UploadBox, UploadedFileList } from "../../components";
+import { useParams } from "react-router-dom";
+import { AssignmentDatabaseList, UploadBox } from "../../components";
 import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
-import { getUploadedFileList } from "../../redux/uploadedFileList/slice";
-import { mockFileList, mockDatabaseList } from "./mock";
+import { mockDatabaseList } from "./mock";
 import styles from "./AssignmentDetailPage.module.css";
-import { Button, Col, Row, Upload, Select } from "antd";
-import { getResult } from "../../redux/result/slice";
+import { Button, Col, Row, Select } from "antd";
 import { BufferFileList } from "../../components/bufferFileList/BufferFileList";
 import { getBufferFileList } from "../../redux/bufferFileList/slice";
-import { HttpRequestHeader } from "antd/es/upload/interface";
 import axios from "axios";
 
 export const AssignmentDetailPage: React.FC = () => {
     const { Option } = Select;
-    const navigate = useNavigate();
 
     const jwtToken = useReduxSelector((s) => s.authentication.jwtToken) as string;
-    const uploadedFileList = useReduxSelector((s) => s.uploadedFileList.fileList);
 
     const resultLoading = useReduxSelector((s) => s.result.loading);
     const bufferFileLoading = useReduxSelector((s) => s.bufferFileList.loading);
     const bufferFileList = useReduxSelector((s) => s.bufferFileList.bufferFileList);
-    //const resultDetail = useReduxSelector((s) => s.result.resultDetail);
     const { subjectCode, assignmentName } = useParams();
     const [fileType, setFileType] = useState("");
 

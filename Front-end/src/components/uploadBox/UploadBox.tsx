@@ -16,7 +16,10 @@ export const UploadBox = () => {
     };
     const body = { "subjectCode": subjectCode, "assignmentName": assignmentName };
     const onUpload = () => {
-        dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
+        setTimeout(() => {
+            dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
+        }, 1500);
+
     };
     return (
         <Space
