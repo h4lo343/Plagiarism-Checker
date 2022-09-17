@@ -1,80 +1,61 @@
 import React from "react";
-import {Skeleton, Space, Table} from "antd";
-import type {ColumnsType} from 'antd/es/table';
-import {Link} from "react-router-dom";
+import { Skeleton, Space, Table } from "antd";
+import type { ColumnsType } from 'antd/es/table';
+import { Link } from "react-router-dom";
 
 interface AssignmentItem {
-    assignmentId: number;
-    semester: string;
-    subjectId: string;
-    subjectName: string;
-    assignmentName: string;
-    createDate: string;
-    dueDate: string;
+  assignmentID: string,
+  similarity: number,
+  submitTime: string,
+  fileName: string
 }
 
 const columns: ColumnsType<AssignmentItem> = [
-    {
-        title: "Semester",
-        dataIndex: "semester",
-        key: "semester",
-    },
-    {
-        title: "Subject Id",
-        dataIndex: "subjectId",
-        key: "subjectId",
-    },
-    {
-        title: "Subject Name",
-        dataIndex: "subjectName",
-        key: "subjectName",
-    },
-    {
-        title: "Assignment Name",
-        dataIndex: "assignmentName",
-        key: "assignmentName",
-    },
-    {
-        title: "Create Date",
-        dataIndex: "createDate",
-        key: "createDate",
-    },
-    {
-        title: "Due Date",
-        dataIndex: "dueDate",
-        key: "dueDate",
-    },
-    {
-        title: "Action",
-        key: "action",
-        render: (_, record) => (
-            <Space size="middle">
-                <Link to={`${record.assignmentName}`} replace={true}>See Result</Link>
-            </Space>
-        ),
-    }
+  {
+    title: "AssignmentId",
+    dataIndex: "assignmentID",
+    key: "assignmentID",
+  },
+  {
+    title: "File Name",
+    dataIndex: "fileName",
+    key: "fileName",
+  },
+
+  {
+    title: "Submit Time",
+    dataIndex: "submitTime",
+    key: "submitTime",
+  },
+  {
+    title: "Similarity",
+    dataIndex: "similarity",
+    key: "similarity",
+  },
+
+
 ];
 
 interface PropsType {
-    loading: boolean;
-    assignmentList: any;
+  loading: boolean;
+  assignmentList: any;
 }
 
 export const ResultList: React.FC<PropsType> = ({
-                                                               loading,
-                                                               assignmentList,
-                                                           }) => {
+  loading,
+  assignmentList,
+}) => {
 
 
-    return (
-        <Skeleton loading={loading} active>
-            <Table<AssignmentItem>
-                columns={columns}
-                dataSource={assignmentList}
-                showHeader={true}
-                size="small"
-                bordered={false}
-            />
-        </Skeleton>
-    );
+  return (
+    <Skeleton loading={loading} active>
+      <Table<AssignmentItem>
+        columns={columns}
+        dataSource={assignmentList}
+        showHeader={true}
+        size="small"
+        bordered={false}
+      />
+    </Skeleton>
+  );
 }
