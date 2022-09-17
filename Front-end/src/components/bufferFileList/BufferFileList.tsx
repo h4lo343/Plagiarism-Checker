@@ -1,10 +1,9 @@
 import React from "react";
-import { Button, Skeleton, Space, Table } from "antd";
+import { Skeleton, Space, Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
 import { deleteBufferFile, getBufferFileList } from "../../redux/bufferFileList/slice";
-import { wait } from "@testing-library/user-event/dist/utils";
 
 interface bufferFileItem {
     index: number;
@@ -31,7 +30,7 @@ export const BufferFileList: React.FC<PropsType> = ({
         dispatch(deleteBufferFile({ jwtToken, fileId }));
         setTimeout(() => {
             dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
-        }, 1500)
+        }, 1200)
 
     };
     const columns: ColumnsType<bufferFileItem> = [

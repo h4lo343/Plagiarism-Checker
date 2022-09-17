@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, Layout } from "antd";
 import styles from "./Sider.module.css"
-import { BarChartOutlined, FileOutlined, ExperimentOutlined, UserDeleteOutlined } from "@ant-design/icons";
+import { BarChartOutlined, ExperimentOutlined, UserDeleteOutlined } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ReduxDispatch} from "../../redux/store"
 import { useDispatch } from "react-redux";
@@ -21,7 +21,6 @@ const getItem = (label: string, key: string, icon?: JSX.Element) => {
 
 const items = [
   getItem('Subject', 'subject', <ExperimentOutlined />),
-  getItem('Total Assignment', 'assignment-list', <FileOutlined />),
   getItem('Result', 'result', <BarChartOutlined />),
   getItem('Logout', 'logout', <UserDeleteOutlined />)
 ];

@@ -1,6 +1,6 @@
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Space, Upload } from "antd";
-import React, { useEffect } from "react";
+import React from "react";
 import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
 import { HttpRequestHeader } from "antd/es/upload/interface";
 import { useParams } from "react-router-dom";
@@ -18,7 +18,7 @@ export const UploadBox = () => {
     const onUpload = () => {
         setTimeout(() => {
             dispatch(getBufferFileList({ jwtToken, subjectCode, assignmentName }));
-        }, 1500)
+        }, 1200)
     };
     return (
         <Space
