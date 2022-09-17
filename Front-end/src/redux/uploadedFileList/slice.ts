@@ -20,7 +20,7 @@ export const getUploadedFileList = createAsyncThunk(
             `http://localhost:8888/fileList/`,
             {
                 headers: {
-                    Authorization: `bearer ${jwtToken}`,
+                    token: `${jwtToken}`,
                 },
             }
         );

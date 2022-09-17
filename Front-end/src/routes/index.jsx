@@ -28,6 +28,10 @@ const routes = [
                 element: <AssignmentListPageTeacher />
             },
             {
+                path: "subject/:subjectCode/:assignmentName",
+                element: <AssignmentDetailPage />
+            },
+            {
                 path: "result",
                 element: <ResultPage />
             },
@@ -36,7 +40,7 @@ const routes = [
                 element: <TeacherSubjectPage />
             },
             {
-                path: "buffer",
+                path: "subject/:subjectCode/:assignmentName/bufferFiles",
                 element: <BufferFilePage />
             },
             {

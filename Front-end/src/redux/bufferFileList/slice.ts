@@ -16,7 +16,7 @@ const initialState: BufferFileListState = {
 export const getBufferFileList = createAsyncThunk(
     "bufferFileList/getBufferFileList",
     async (parameters: {
-        jwtToken: string | null, subjectCode: string, assignmentName: string
+        jwtToken: string | null, subjectCode: string | undefined, assignmentName: string | undefined
     }) => {
         const axiosResponse = await axios.get(
             `http://localhost:8888/buffer/getBufferFileList?subjectCode=${parameters.subjectCode}&assignmentName=${parameters.assignmentName}`,

@@ -24,7 +24,7 @@ const columns: ColumnsType<AssignmentData> = [
         key: "action",
         render: (_, record) => (
             <Space size="middle">
-                <Link to={`detail/${record.assignmentName}`} replace={true}>Enter</Link>
+                <Link to={`${record.assignmentName}`} replace={true}>Enter</Link>
             </Space>
         )
     }

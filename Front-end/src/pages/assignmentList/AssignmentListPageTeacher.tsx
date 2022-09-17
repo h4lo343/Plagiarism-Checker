@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
-import { AssignmentListStudent } from "../../components";
+import { AssignmentListStudent, AssignmentListTeacher } from "../../components";
 import styles from "./AssignmentListPage.module.css";
 import { useReduxDispatch, useReduxSelector } from "../../redux/hooks";
 import { getAssignmentList } from "../../redux/assignmentList/slice";
 import { Spin } from "antd";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 export const AssignmentListPageTeacher = () => {
 
-    const location = useLocation();
-    const subjectCode = location.pathname.slice(17);
+    const { subjectCode } = useParams();
     console.log(subjectCode)
     useEffect(() => {
         PubSub.publish("title", `Assignment`);
@@ -51,7 +50,7 @@ export const AssignmentListPageTeacher = () => {
     return (
         <div className={styles["assign-container"]}>
             <div className={styles["teacherAssignTable-container"]}>
-                <AssignmentListStudent loading={loading} assignmentList={assignmentList} />
+                <AssignmentListTeacher loading={loading} assignmentList={assignmentList} />
             </div>
         </div>
     );

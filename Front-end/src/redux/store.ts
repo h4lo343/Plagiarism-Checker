@@ -8,6 +8,7 @@ import {getResult, resultSlice} from "./result/slice";
 import { subjectListSlice } from "./subjectList/slice"
 import {resultTextSlice} from "./resultText/slice";
 import { bufferFileListSlice } from "./bufferFileList/slice";
+import { assignmentDetailSlice } from "./assignmentDetail/slice";
 
 const persistConfig = {
     key: "root",
@@ -18,6 +19,7 @@ const persistConfig = {
 const rootReducer = combineReducers(
     {
         assignmentList: assignmentListSlice.reducer,
+        assignmentDetail: assignmentDetailSlice.reducer,
         authentication: authenticationSlice.reducer,
         uploadedFileList: uploadedFileListSlice.reducer,
         subjectList: subjectListSlice.reducer,
